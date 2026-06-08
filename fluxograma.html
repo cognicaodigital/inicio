@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Estrutura Estratégica de Empresa Focada em Marketing e Escala — Cognição Digital" />
+  <meta property="og:title" content="Fluxograma Estratégico · Cognição Digital" />
+  <meta property="og:description" content="Aquisição · Conversão · Crescimento · Retenção" />
+  <meta property="og:url" content="https://cognicaodigittal.com/fluxograma.html" />
+  <title>Fluxograma Estratégico · Cognição Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════════
+       RESET & TOKENS
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C; --gold-light: #E8C96A;
+      --navy: #0D1B2A; --navy-mid: #132338; --navy-light: #1A3050;
+      --white: #F5F5F0; --muted: #8A9AB5;
+      --green: #3ECFA0; --blue: #4A90D9; --purple: #9B7FCC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Sora', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE WRAPPER
+    ══════════════════════════════════════════ */
+    .page {
+      min-height: 100vh;
+      padding: 32px 16px 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,.07) 0%, transparent 70%),
+        var(--navy);
+    }
+
+    /* ══════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════ */
+    .header { text-align: center; margin-bottom: 32px; animation: fadeDown .6s ease both; width: 100%; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .header-label {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;
+    }
+    .header-title { font-size: clamp(22px, 4vw, 34px); font-weight: 800; line-height: 1.2; }
+    .header-title span { color: var(--gold); }
+    .header-sub { font-size: 12px; color: var(--muted); margin-top: 8px; font-weight: 300; letter-spacing: 1px; }
+    .header-hint {
+      margin-top: 12px; display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; color: rgba(201,168,76,.65); font-family: 'Space Mono', monospace;
+      letter-spacing: 1px; border: 1px solid rgba(201,168,76,.2); padding: 5px 14px; border-radius: 20px;
+    }
+    .hint-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 1.4s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+    /* ══════════════════════════════════════════
+       LAYER — the content column
+    ══════════════════════════════════════════ */
+    .layer {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .layer-label {
+      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+      text-align: center; width: 100%; padding-left: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       ROW — horizontal group of blocks
+       Mobile default: vertical stack
+    ══════════════════════════════════════════ */
+    .row, .growth-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ══════════════════════════════════════════
+       BLOCK
+    ══════════════════════════════════════════ */
+    .block {
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+      width: 100%;
+      cursor: pointer; touch-action: manipulation;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      position: relative; user-select: none;
+    }
+    .block:active { transform: scale(.98); }
+    .block-click-hint {
+      position: absolute; top: 8px; right: 10px;
+      font-size: 14px; font-weight: 700;
+      color: var(--gold); opacity: .5;
+      transition: opacity .2s;
+    }
+    .block:hover .block-click-hint { opacity: 1; }
+    .block-title { font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--white); }
+    .block-tag { font-size: 9px; font-weight: 400; color: var(--muted); font-family: 'Space Mono', monospace; line-height: 1.4; }
+    .pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+    .pill { font-size: 9px; font-weight: 600; padding: 3px 8px; border-radius: 20px; letter-spacing: .3px; white-space: nowrap; }
+
+    /* ── Block Variants ── */
+    .b-strategy { background:linear-gradient(135deg,#1A3050,#0F2240); border:1.5px solid rgba(201,168,76,.5); box-shadow:0 4px 24px rgba(201,168,76,.1); }
+    .b-strategy:hover { border-color:var(--gold); box-shadow:0 8px 32px rgba(201,168,76,.2); }
+    .b-strategy .pill { background:rgba(201,168,76,.15); color:var(--gold-light); border:1px solid rgba(201,168,76,.35); }
+
+    .b-bi { background:linear-gradient(135deg,#1A2840,#112035); border:1px solid rgba(74,144,217,.4); }
+    .b-bi:hover { border-color:var(--blue); box-shadow:0 8px 32px rgba(74,144,217,.15); }
+    .b-bi .block-title { color:var(--blue); }
+    .b-bi .pill { background:rgba(74,144,217,.15); color:var(--blue); border:1px solid rgba(74,144,217,.35); }
+
+    .b-marketing { background:linear-gradient(135deg,#1A3A1A,#112511); border:2px solid rgba(62,207,160,.65); box-shadow:0 0 40px rgba(62,207,160,.12),0 4px 20px rgba(0,0,0,.5); }
+    .b-marketing:hover { border-color:var(--green); box-shadow:0 0 60px rgba(62,207,160,.2),0 8px 32px rgba(0,0,0,.5); }
+    .b-marketing .block-title { color:var(--green); font-size:13px; }
+    .b-marketing .pill { background:rgba(62,207,160,.15); color:var(--green); border:1px solid rgba(62,207,160,.4); }
+
+    .b-sales { background:linear-gradient(135deg,#1A2B3A,#122030); border:1.5px solid rgba(74,144,217,.55); }
+    .b-sales:hover { border-color:var(--blue); box-shadow:0 8px 32px rgba(74,144,217,.2); }
+    .b-sales .block-title { color:var(--blue); }
+    .b-sales .pill { background:rgba(74,144,217,.15); color:var(--blue); border:1px solid rgba(74,144,217,.4); }
+
+    .b-ops { background:var(--navy-mid); border:1px solid rgba(201,168,76,.3); }
+    .b-ops:hover { border-color:var(--gold); box-shadow:0 8px 24px rgba(201,168,76,.1); }
+    .b-ops .pill { background:rgba(201,168,76,.12); color:rgba(201,168,76,.85); border:1px solid rgba(201,168,76,.3); }
+
+    .b-retention { background:linear-gradient(135deg,#192A19,#102010); border:1px solid rgba(102,187,102,.45); }
+    .b-retention:hover { border-color:#6BCF6B; box-shadow:0 8px 24px rgba(102,187,102,.15); }
+    .b-retention .block-title { color:#6BCF6B; }
+    .b-retention .pill { background:rgba(102,187,102,.12); color:#88DD88; border:1px solid rgba(102,187,102,.35); }
+
+    .b-fin { background:linear-gradient(135deg,#1E1A10,#15120A); border:1.5px solid rgba(201,168,76,.5); }
+    .b-fin:hover { border-color:var(--gold-light); box-shadow:0 8px 32px rgba(201,168,76,.2); }
+    .b-fin .block-title { color:var(--gold-light); }
+    .b-fin .pill { background:rgba(201,168,76,.15); color:var(--gold-light); border:1px solid rgba(201,168,76,.4); }
+
+    .b-infra { background:var(--navy-mid); border:1px solid rgba(155,127,204,.35); }
+    .b-infra:hover { border-color:var(--purple); box-shadow:0 8px 24px rgba(155,127,204,.15); }
+    .b-infra .pill { background:rgba(155,127,204,.12); color:var(--purple); border:1px solid rgba(155,127,204,.35); }
+
+    .b-org { background:var(--navy-mid); border:1px solid rgba(138,154,181,.25); }
+    .b-org:hover { border-color:var(--muted); box-shadow:0 8px 20px rgba(138,154,181,.1); }
+    .b-org .pill { background:rgba(138,154,181,.1); color:var(--muted); border:1px solid rgba(138,154,181,.25); }
+
+    /* ══════════════════════════════════════════
+       GROWTH ZONE
+    ══════════════════════════════════════════ */
+    .growth-zone {
+      width: 100%; border: 2px solid rgba(201,168,76,.45); border-radius: 16px;
+      padding: 22px 14px 16px;
+      background: linear-gradient(180deg, rgba(201,168,76,.06) 0%, transparent 100%);
+      position: relative; animation: glowPulse 3s ease-in-out infinite;
+    }
+    @keyframes glowPulse { 0%,100%{box-shadow:0 0 20px rgba(201,168,76,.08)} 50%{box-shadow:0 0 50px rgba(201,168,76,.18)} }
+    .growth-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--navy); font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      padding: 5px 18px; border-radius: 20px; white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════════
+       CYCLE BAR
+    ══════════════════════════════════════════ */
+    .cycle {
+      width: 100%;
+      margin-bottom: 4px;
+      padding: 10px 0;
+      background: rgba(26,48,80,.5);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 8px;
+      overflow: hidden; /* Esconde o excesso */
+      position: relative;
+      cursor: col-resize;
+    }
+    .cycle-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 30px; /* Espaço entre os ciclos */
+      width: max-content;
+      will-change: transform;
+    }
+    .cycle-content {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Espaço entre itens dentro do ciclo */
+      padding: 0 15px;
+    }
+    .cycle-item { 
+      font-size: 10px; 
+      font-weight: 700; 
+      letter-spacing: 1.5px; 
+      text-transform: uppercase; 
+      color: var(--gold); 
+      font-family: 'Space Mono', monospace; 
+      white-space: nowrap; 
+    }
+    .cycle-sep { 
+      color: rgba(201,168,76,.4); 
+      font-size: 12px; 
+      font-weight: 700; 
+    }
+
+    /* ══════════════════════════════════════════
+       ARROWS & DIVIDER
+    ══════════════════════════════════════════ */
+    .arrow { display: flex; flex-direction: column; align-items: center; margin: 2px 0; }
+    .arrow-line { width: 2px; height: 18px; background: linear-gradient(to bottom, rgba(201,168,76,.7), rgba(201,168,76,.2)); }
+    .arrow-head { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid rgba(201,168,76,.6); }
+    .arrow.main .arrow-line { width: 3px; height: 26px; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,.3)); }
+    .arrow.main .arrow-head { border-top-color: var(--gold); }
+    .divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,.25), transparent); margin: 8px 0; }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer { margin-top: 44px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: rgba(138,154,181,.4); text-transform: uppercase; }
+    .footer a { color: rgba(201,168,76,.5); text-decoration: none; }
+    .footer a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════════
+       MODAL — shared base
+    ══════════════════════════════════════════ */
+    .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(5,12,22,.88); backdrop-filter: blur(8px); display: flex; align-items: flex-end; justify-content: center; padding: 0; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--navy-mid); width: 100%; max-height: 92vh;
+      border-radius: 20px 20px 0 0; border: 1px solid rgba(201,168,76,.2); border-bottom: none;
+      box-shadow: 0 -16px 60px rgba(0,0,0,.6);
+      overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.3) transparent;
+      transform: translateY(100%); transition: transform .35s cubic-bezier(.32,1,.23,1);
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal::before {
+      content: ''; display: block; width: 36px; height: 4px;
+      background: rgba(255,255,255,.15); border-radius: 2px; margin: 10px auto 0;
+    }
+    .modal-header { padding: 14px 18px 14px; border-bottom: 1px solid rgba(255,255,255,.06); position: sticky; top: 0; background: var(--navy-mid); z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .modal-header-left { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+    .modal-layer-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+    .modal-title { font-size: 20px; font-weight: 800; line-height: 1.2; }
+    .modal-subtitle { font-size: 12px; font-weight: 300; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+    .modal-close { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--muted); width: 36px; height: 36px; border-radius: 8px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s, color .15s; flex-shrink: 0; touch-action: manipulation; }
+    .modal-close:hover { background: rgba(255,255,255,.12); color: var(--white); }
+    .modal-body { padding: 14px 18px 36px; display: flex; flex-direction: column; gap: 18px; }
+
+    /* Modal inner sections */
+    .m-section { display: flex; flex-direction: column; gap: 10px; }
+    .m-section-title { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid; }
+    .m-text { font-size: 13px; line-height: 1.75; color: rgba(245,245,240,.82); font-weight: 300; }
+    .m-text strong { color: var(--white); font-weight: 600; }
+    .m-highlights { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .m-highlight { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; cursor: pointer; touch-action: manipulation; transition: background .2s, border-color .2s; }
+    .m-highlight:hover, .m-highlight:active { background: rgba(255,255,255,.08); }
+    .m-highlight.open { border-color: rgba(255,255,255,.18); }
+    .m-highlight-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    .m-highlight-label { font-size: 8px; color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
+    .m-highlight-value { font-size: 12px; font-weight: 600; line-height: 1.4; }
+    .m-highlight-chevron { font-size: 9px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; margin-top: 2px; opacity: .6; }
+    .m-highlight.open .m-highlight-chevron { transform: rotate(180deg); opacity: 1; }
+    .m-highlight-detail { overflow: hidden; max-height: 0; transition: max-height .35s ease, opacity .25s ease, padding-top .25s; font-size: 12px; color: rgba(245,245,240,.72); font-weight: 300; line-height: 1.65; padding-top: 0; opacity: 0; border-top: 0px solid rgba(255,255,255,.06); }
+    .m-highlight.open .m-highlight-detail { max-height: 320px; padding-top: 10px; opacity: 1; border-top-width: 1px; margin-top: 6px; }
+    .m-warning { background: rgba(224,92,92,.08); border: 1px solid rgba(224,92,92,.3); border-radius: 8px; padding: 12px 14px; font-size: 12px; color: #E08080; line-height: 1.65; font-weight: 300; }
+    .m-warning strong { font-weight: 700; color: #E05C5C; }
+    .m-list { display: flex; flex-direction: column; gap: 8px; }
+    .m-list-item { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; line-height: 1.55; color: rgba(245,245,240,.78); font-weight: 300; }
+    .m-list-item::before { content: '→'; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 11px; }
+
+    /* ══════════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════════ */
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+    .layer > * { animation: fadeDown .5s ease both; }
+    .layer > *:nth-child(1){animation-delay:.10s} .layer > *:nth-child(2){animation-delay:.15s}
+    .layer > *:nth-child(3){animation-delay:.20s} .layer > *:nth-child(4){animation-delay:.25s}
+    .layer > *:nth-child(5){animation-delay:.30s} .layer > *:nth-child(6){animation-delay:.35s}
+    .layer > *:nth-child(7){animation-delay:.40s} .layer > *:nth-child(8){animation-delay:.45s}
+    .layer > *:nth-child(9){animation-delay:.50s} .layer > *:nth-child(10){animation-delay:.55s}
+    .layer > *:nth-child(11){animation-delay:.60s} .layer > *:nth-child(12){animation-delay:.65s}
+    .layer > *:nth-child(13){animation-delay:.70s} .layer > *:nth-child(14){animation-delay:.75s}
+    .layer > *:nth-child(15){animation-delay:.80s} .layer > *:nth-child(16){animation-delay:.85s}
+    .layer > *:nth-child(17){animation-delay:.90s} .layer > *:nth-child(18){animation-delay:.95s}
+
+    /* ══════════════════════════════════════════
+       TABLET  601px – 1024px
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .page { padding: 24px 16px 48px; }
+      .row, .growth-row { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+      .block { width: auto; flex: 1 1 calc(50% - 8px); }
+      .b-marketing { flex: 1.4 1 calc(55% - 8px); }
+      .b-sales     { flex: 1   1 calc(43% - 8px); }
+      .row-org { display: grid; grid-template-columns: 1fr 1fr; }
+      .row-org .block { flex: none; width: 100%; }
+      .block:hover { transform: translateY(-4px); }
+      .block-click-hint { opacity: 0; }
+      .block:hover .block-click-hint { opacity: .8; }
+      /* Modal: centered on tablet */
+      .modal-overlay { align-items: center; padding: 20px; }
+      .modal { max-width: 520px; border-radius: 16px; border-bottom: 1px solid rgba(201,168,76,.2); transform: translateY(20px) scale(.97); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+      .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+      .modal::before { display: none; }
+      .modal-header { padding: 22px 22px 14px; }
+      .modal-body { padding: 18px 22px 28px; }
+    }
+
+    /* ══════════════════════════════════════════
+       DESKTOP  > 1024px (REFINED)
+    ══════════════════════════════════════════ */
+    /* ══════════════════════════════════════════
+       DESKTOP  > 1024px (STRICT CENTER)
+    ══════════════════════════════════════════ */
+    @media (min-width: 1025px) {
+      .page { padding: 80px 40px; }
+      .header { max-width: 960px; margin-bottom: 80px; }
+      .layer { max-width: 960px; width: 100%; margin: 0 auto; align-items: center; }
+      .header-title { font-size: 44px; }
+      .header-sub { font-size: 16px; letter-spacing: 4px; }
+
+      /* Rows: Perfectly aligned */
+      .row { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: var(--gap); width: 100%; justify-content: center; }
+      .growth-row { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 24px; width: 100%; justify-content: center; }
+
+      /* Blocks: Harmonious sizing */
+      .block { 
+        flex: 1; 
+        min-width: 0; 
+        padding: 32px;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 480px;
+      }
+
+      /* Marketing & Sales proportions */
+      .b-marketing { flex: 1.5; }
+      .b-sales     { flex: 1; }
+
+      /* Org: Compact columns */
+      .row-org { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 16px; width: 100%; justify-content: center; }
+      .row-org .block { flex: 1; padding: 20px; min-height: 110px; max-width: 240px; }
+
+      /* Spacing & Labels */
+      .growth-zone { padding: 48px 40px; border-radius: 32px; width: 100%; display: flex; flex-direction: column; align-items: center; }
+      .layer-label { font-size: 13px; margin-bottom: 24px; letter-spacing: 6px; text-align: center; align-self: center; }
+      .arrow.main { margin: 16px 0; }
+      .arrow.main .arrow-line { height: 64px; }
+      
+      .modal { max-width: 720px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-label">Cognição Digital · Estrutura Estratégica</div>
+    <h1 class="header-title">Empresa Focada em <span>Marketing & Escala</span></h1>
+    <p class="header-sub">Aquisição · Conversão · Crescimento · Retenção</p>
+    <div class="header-hint"><span class="hint-dot"></span> Clique em qualquer bloco para expandir</div>
+  </div>
+
+  <div class="layer">
+
+    <div class="cycle" id="cycleBar">
+      <div class="cycle-wrapper" id="cycleWrapper">
+        <div class="cycle-content">
+          <span class="cycle-item">Estratégia</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Marketing</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Vendas</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Receita</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Operação</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Cliente</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Retenção</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Dados</span><span class="cycle-sep">↺</span>
+          <span class="cycle-item">Estratégia</span>
+        </div>
+        <!-- Duplicado para loop infinito -->
+        <div class="cycle-content">
+          <span class="cycle-item">Estratégia</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Marketing</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Vendas</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Receita</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Operação</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Cliente</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Retenção</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Dados</span><span class="cycle-sep">↺</span>
+          <span class="cycle-item">Estratégia</span>
+        </div>
+        <!-- Triplicado para segurança em telas ultra-wide -->
+        <div class="cycle-content">
+          <span class="cycle-item">Estratégia</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Marketing</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Vendas</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Receita</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Operação</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Cliente</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Retenção</span><span class="cycle-sep">→</span>
+          <span class="cycle-item">Dados</span><span class="cycle-sep">↺</span>
+          <span class="cycle-item">Estratégia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow main"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+
+    <div class="layer-label">01 · Estratégia</div>
+    <div class="row">
+      <div class="block b-strategy" onclick="openModal('strategy')">
+        <span class="block-click-hint">+</span>
+        <div class="block-title">Estratégia & Gestão</div>
+        <div class="block-tag">Cérebro da Empresa</div>
+        <div class="pills"><span class="pill">Visão</span><span class="pill">OKRs</span><span class="pill">Prioridades</span><span class="pill">Liderança</span></div>
+      </div>
+      <div class="block b-bi" onclick="openModal('bi')">
+        <span class="block-click-hint">+</span>
+        <div class="block-title">Inteligência de Dados</div>
+        <div class="block-tag">Trocar feeling por decisão baseada em números reais</div>
+        <div class="pills"><span class="pill">O que está vendendo?</span><span class="pill">Onde o cliente some?</span><span class="pill">Qual canal traz mais retorno?</span></div>
+      </div>
+    </div>
+
+    <div class="arrow main"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+
+    <div class="growth-zone">
+      <div class="growth-badge">⚡ ZONA DE CRESCIMENTO</div>
+      <div class="layer-label" style="margin-bottom:14px">02 · Motor de Escala</div>
+      <div class="growth-row">
+        <div class="block b-marketing" onclick="openModal('marketing')">
+          <span class="block-click-hint">+</span>
+          <div class="block-title">MARKETING</div>
+          <div class="block-tag">Percepção · Aquisição · Geração de Demanda</div>
+          <div class="pills"><span class="pill">Tráfego Pago</span><span class="pill">Conteúdo</span><span class="pill">Orgânico</span><span class="pill">Copywriting</span><span class="pill">Funil</span></div>
+        </div>
+        <div class="block b-sales" onclick="openModal('sales')">
+          <span class="block-click-hint">+</span>
+          <div class="block-title">VENDAS</div>
+          <div class="block-tag">Conversão · Receita</div>
+          <div class="pills"><span class="pill">CRM</span><span class="pill">Processo Comercial</span><span class="pill">Follow-up</span><span class="pill">Fechamento</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow main"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+
+    <div class="layer-label">03 · Entrega & Sustentação</div>
+    <div class="row">
+      <div class="block b-ops" onclick="openModal('ops')"><span class="block-click-hint">+</span><div class="block-title">Operações</div><div class="block-tag">Entrega</div><div class="pills"><span class="pill">Execução</span><span class="pill">SLAs</span><span class="pill">Qualidade</span></div></div>
+      <div class="block b-ops" onclick="openModal('produto')"><span class="block-click-hint">+</span><div class="block-title">Produto</div><div class="block-tag">Valor</div><div class="pills"><span class="pill">Qualidade</span><span class="pill">Melhoria</span><span class="pill">Roadmap</span></div></div>
+      <div class="block b-ops" onclick="openModal('processos')"><span class="block-click-hint">+</span><div class="block-title">Processos</div><div class="block-tag">Padronização</div><div class="pills"><span class="pill">Playbooks</span><span class="pill">SOPs</span><span class="pill">Treinamento</span></div></div>
+    </div>
+
+    <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+    <div class="divider"></div>
+
+    <div class="layer-label">04 · Retenção</div>
+    <div class="row">
+      <div class="block b-retention" onclick="openModal('cs')"><span class="block-click-hint">+</span><div class="block-title">Sucesso do Cliente</div><div class="block-tag">Churn Zero</div><div class="pills"><span class="pill">Onboarding</span><span class="pill">CS</span><span class="pill">NPS</span></div></div>
+      <div class="block b-retention" onclick="openModal('posvenda')"><span class="block-click-hint">+</span><div class="block-title">Pós-Venda</div><div class="block-tag">Expansão</div><div class="pills"><span class="pill">Upsell</span><span class="pill">Comunidade</span><span class="pill">Referral</span></div></div>
+    </div>
+
+    <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+    <div class="divider"></div>
+
+    <div class="layer-label">05 · Base Estrutural</div>
+    <div class="row">
+      <div class="block b-fin" onclick="openModal('financeiro')"><span class="block-click-hint">+</span><div class="block-title">Financeiro</div><div class="block-tag">Sustentação da Escala</div><div class="pills"><span class="pill">Caixa</span><span class="pill">Margem</span><span class="pill">Previsibilidade</span><span class="pill">Reinvestimento</span></div></div>
+      <div class="block b-infra" onclick="openModal('ti')"><span class="block-click-hint">+</span><div class="block-title">TI & Integrações</div><div class="block-tag">Automação</div><div class="pills"><span class="pill">Sistemas</span><span class="pill">APIs</span><span class="pill">Automações</span></div></div>
+      <div class="block b-infra" onclick="openModal('admin')"><span class="block-click-hint">+</span><div class="block-title">Administrativo</div><div class="block-tag">Suporte</div><div class="pills"><span class="pill">Contratos</span><span class="pill">Compliance</span><span class="pill">Backoffice</span></div></div>
+    </div>
+
+    <div class="divider" style="margin:12px 0"></div>
+
+    <div class="layer-label">06 · Estrutura Organizacional</div>
+    <div class="row row-org">
+      <div class="block b-org" onclick="openModal('cultura')"><span class="block-click-hint">+</span><div class="block-title">Cultura</div><div class="pills"><span class="pill">Valores</span><span class="pill">Rituais</span></div></div>
+      <div class="block b-org" onclick="openModal('rh')"><span class="block-click-hint">+</span><div class="block-title">RH</div><div class="pills"><span class="pill">Talentos</span><span class="pill">Clima</span></div></div>
+      <div class="block b-org" onclick="openModal('juridico')"><span class="block-click-hint">+</span><div class="block-title">Jurídico</div><div class="pills"><span class="pill">Contratos</span><span class="pill">LGPD</span></div></div>
+      <div class="block b-org" onclick="openModal('governanca')"><span class="block-click-hint">+</span><div class="block-title">Governança</div><div class="pills"><span class="pill">Políticas</span><span class="pill">Conselho</span></div></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <a href="https://cognicaodigittal.com" target="_blank">cognicaodigittal.com</a>
+    &nbsp;·&nbsp; Sistema C.D.E. — Clareza · Diagnóstico · Execução
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-layer-tag" id="mLayerTag"></div>
+        <div class="modal-title" id="mTitle"></div>
+        <div class="modal-subtitle" id="mSubtitle"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+const DATA = {
+  strategy:{
+    layer:'01 · Estratégia', title:'Estratégia & Gestão', accent:'#C9A84C',
+    subtitle:'O cérebro da empresa — define para onde vai e como vai chegar lá.',
+    sections:[
+      {type:'text',label:'O que é',content:'É o nível mais alto de decisão. Aqui se define a <strong>visão de longo prazo</strong>, as prioridades do trimestre, quem faz o quê e como o sucesso será medido. Sem estratégia clara, cada área puxa para um lado — e a empresa não escala, só gasta energia.'},
+      {type:'highlights',label:'Pilares — clique para expandir',items:[
+        {label:'Visão',value:'Onde a empresa estará em 3–5 anos',detail:'A visão não é um sonho vago — é uma declaração concreta de onde a empresa quer chegar. Ex: "Ser a maior referência em marketing digital para pequenas empresas no Brasil até 2028." Ela orienta todas as decisões estratégicas e dá sentido ao trabalho do time.'},
+        {label:'OKRs',value:'Metas trimestrais mensuráveis e rastreáveis',detail:'OKR = Objetivo + Resultado-Chave. O Objetivo é qualitativo ("Crescer a base de clientes"), os Resultados-Chave são numéricos ("Fechar 30 novos contratos", "Reduzir churn para abaixo de 3%"). Revisados mensalmente, mantêm o time focado no que realmente importa.'},
+        {label:'Prioridades',value:'O que NÃO fazer é tão importante quanto o que fazer',detail:'Uma empresa que tenta fazer tudo ao mesmo tempo não escala nada bem. Definir prioridades é escolher onde concentrar energia, tempo e dinheiro. A ferramenta mais simples: liste tudo que precisa ser feito e corte metade. O que sobrar é o que realmente move a agulha.'},
+        {label:'Liderança',value:'Quem decide, quem executa, quem responde',detail:'Liderança clara evita reuniões intermináveis e decisões travadas. Cada área precisa de um responsável com autonomia e accountability. Sem isso, todo problema vira pauta para o dono resolver — e o dono vira gargalo da própria empresa.'}
+      ]},
+      {type:'list',label:'Na prática',items:[
+        'Reunião semanal de alinhamento com líderes de cada área',
+        'Definição de metas claras por trimestre (OKRs)',
+        'Revisão mensal: o que está funcionando, o que deve parar',
+        'Tomada de decisão baseada em dados, não em intuição'
+      ]},
+      {type:'warning',content:'<strong>Sem estratégia:</strong> equipes desalinhadas, recursos desperdiçados, crescimento aleatório. A empresa cresce apesar de si mesma — mas tem teto baixo.'}
+    ]
+  },
+  bi:{
+    layer:'01 · Estratégia', title:'Inteligência de Dados', accent:'#4A90D9',
+    subtitle:'Sair do feeling para a clareza — decidir com base em números reais.',
+    sections:[
+      {type:'text',label:'O que é',content:'É a prática de <strong>coletar, organizar e interpretar os dados do negócio</strong> para que as decisões sejam baseadas em fatos, não achismos. Se você não sabe o que está vendendo, onde está perdendo cliente ou qual campanha dá retorno — está gerindo no escuro.'},
+      {type:'highlights',label:'Perguntas que os dados respondem',items:[
+        {label:'Aquisição',value:'Qual canal traz mais cliente com menor custo?',detail:'O CAC (Custo de Aquisição de Cliente) por canal revela onde investir mais e onde cortar. Um lead do Google pode custar R$80 e converter em 12%. Um do Instagram pode custar R$30 e converter em 4%. O dado bruto engana — a análise de custo por cliente conquistado é o que decide.'},
+        {label:'Conversão',value:'Onde no funil o cliente desiste?',detail:'Visualizar o funil etapa por etapa mostra os pontos de fuga. Se 1.000 pessoas clicam no anúncio, 200 chegam à página de vendas e só 10 compram — o problema não é o tráfego, é a página. Dados de funil direcionam o esforço para onde ele gera mais resultado.'},
+        {label:'Receita',value:'Quais produtos têm melhor margem?',detail:'Faturamento alto não significa lucro alto. Um produto que vende muito mas tem custo de entrega elevado pode estar destruindo margem. O BI permite identificar quais produtos ou serviços realmente geram resultado líquido — e focar a energia de marketing neles.'},
+        {label:'Retenção',value:'Quem está em risco de cancelar?',detail:'Dados de comportamento revelam sinais de churn antes de ele acontecer: cliente que para de abrir e-mails, que reduz uso do produto, que não responde ao CS. Com esses dados, a empresa age proativamente — salva o cliente antes que ele cancele.'}
+      ]},
+      {type:'list',label:'Ferramentas acessíveis',items:[
+        'Google Looker Studio (gratuito) — dashboards visuais',
+        'Meta Ads Manager + Google Analytics — dados de tráfego',
+        'Planilhas bem estruturadas já são BI na prática',
+        'CRM com relatórios: HubSpot, RD Station, Pipedrive'
+      ]},
+      {type:'warning',content:'<strong>Sem dados:</strong> você aumenta o investimento em anúncios sem saber se está tendo retorno. Contrata mais vendedores sem saber onde o funil quebra. Escala o problema, não a solução.'}
+    ]
+  },
+  marketing:{
+    layer:'02 · Motor de Escala', title:'Marketing', accent:'#3ECFA0',
+    subtitle:'Gerar percepção, atrair as pessoas certas e criar demanda consistente.',
+    sections:[
+      {type:'text',label:'O papel do Marketing na escala',content:'Marketing não é apenas postar nas redes sociais. É o <strong>motor que alimenta o crescimento</strong>: atrai pessoas, gera interesse, educa o mercado e entrega leads prontos para o time de vendas converter. Sem marketing funcionando, vendas morre de fome.'},
+      {type:'highlights',label:'As frentes do Marketing — clique para expandir',items:[
+        {label:'Tráfego Pago',value:'Meta Ads, Google Ads — resultado rápido e previsível',detail:'É o canal mais rápido para gerar demanda. Com Meta Ads você impacta pessoas pelo comportamento e interesse; com Google Ads, captura quem já está procurando. A chave é testar criativos continuamente, monitorar o ROAS (retorno sobre investimento em anúncio) e escalar o que funciona sem queimar caixa.'},
+        {label:'Conteúdo',value:'Educa, cria autoridade e gera audiência própria',detail:'Conteúdo é o ativo de longo prazo do marketing. Um artigo bem ranqueado no Google gera leads por anos sem custo adicional. Um perfil de Instagram com autoridade converte melhor com menos anúncio. A estratégia: conteúdo que responde perguntas reais do cliente, posicionando a empresa como referência.'},
+        {label:'Copywriting',value:'A arte de escrever para convencer e vender',detail:'Copy é a diferença entre um anúncio que ninguém clica e um que vende. A fórmula base: apresenta o problema do cliente → amplifica a dor → apresenta a solução → prova social → chamada para ação. Uma headline forte pode dobrar a taxa de clique sem aumentar um centavo no investimento.'},
+        {label:'Funil',value:'Jornada do desconhecido ao cliente pagante',detail:'O funil divide a jornada em 3 etapas: Topo (TOFU) — pessoas que ainda não te conhecem, recebem conteúdo educativo. Meio (MOFU) — considerando opções, recebem prova de valor. Fundo (BOFU) — prontos para comprar, recebem oferta e CTA direto. Cada etapa tem conteúdo e abordagem diferentes.'},
+        {label:'Orgânico',value:'SEO e redes sociais sem investimento direto em mídia',detail:'Orgânico = crescimento sem pagar por clique. SEO posiciona a empresa no Google para buscas do seu nicho. Redes sociais orgânicas constroem relacionamento e autoridade. O retorno é mais lento que o pago, mas o custo de manutenção cai ao longo do tempo — e a audiência pertence à empresa.'}
+      ]},
+      {type:'list',label:'Como o marketing alimenta a escala',items:[
+        'Tráfego pago gera volume previsível de leads todo mês',
+        'Conteúdo orgânico reduz o custo de aquisição ao longo do tempo',
+        'Copy forte aumenta a conversão sem gastar mais em anúncio',
+        'Funil bem estruturado segmenta quem está pronto para comprar',
+        'Dados do marketing informam a estratégia — volta para o BI'
+      ]},
+      {type:'warning',content:'<strong>Atenção:</strong> Marketing gera demanda — mas se o produto, vendas ou operação não entregam, a escala quebra. O marketing é o acelerador, não o motor completo.'}
+    ]
+  },
+  sales:{
+    layer:'02 · Motor de Escala', title:'Vendas', accent:'#4A90D9',
+    subtitle:'Converter interesse em receita — de forma consistente e escalável.',
+    sections:[
+      {type:'text',label:'O papel de Vendas',content:'Vendas é onde o interesse vira dinheiro. Marketing atrai — vendas converte. Um time estruturado tem <strong>processo claro, ferramentas adequadas e métricas definidas</strong>. Sem processo, depende de talento individual. Com processo, escala.'},
+      {type:'highlights',label:'Os pilares do Processo Comercial',items:[
+        {label:'CRM',value:'Registro de cada lead — nada se perde, tudo é rastreado',detail:'CRM (Customer Relationship Management) é o sistema que organiza todos os contatos, conversas e etapas de cada negociação. Sem CRM, o vendedor guarda tudo na cabeça — e quando sai, leva os clientes junto. Com CRM: histórico completo, pipeline visível, follow-up automatizado. Ferramentas: HubSpot (gratuito), Pipedrive, RD Station CRM.'},
+        {label:'Processo Comercial',value:'Etapas definidas do primeiro contato ao fechamento',detail:'Um processo comercial é o mapa de cada etapa: 1) Primeiro contato, 2) Qualificação (esse lead tem perfil?), 3) Apresentação/proposta, 4) Negociação, 5) Fechamento, 6) Onboarding. Com etapas claras, o gestor sabe onde cada lead está e o que fazer para avançar. Sem processo, cada vendedor improvisa.'},
+        {label:'Follow-up',value:'A maioria das vendas acontece do 5º ao 12º contato',detail:'Estudos mostram que 80% das vendas exigem ao menos 5 follow-ups, mas a maioria dos vendedores desiste após o 1º ou 2º contato. O segredo é ter uma cadência definida: dia 1 → e-mail, dia 3 → WhatsApp, dia 7 → ligação, dia 14 → novo conteúdo de valor. Persistência com relevância — não insistência aleatória.'},
+        {label:'Fechamento',value:'Técnicas e timing correto para a tomada de decisão',detail:'Fechar não é pressionar — é facilitar a decisão de quem já quer comprar. Técnicas: criar urgência real (prazo, vagas limitadas), remover objeções com antecedência, usar prova social (casos de sucesso), e fazer a pergunta direta: "Podemos avançar?". O timing certo é quando o lead demonstra sinal de compra — não quando o vendedor precisa bater meta.'}
+      ]},
+      {type:'list',label:'Indicadores que Vendas deve monitorar',items:[
+        'Taxa de conversão de lead para venda',
+        'Ticket médio por produto ou serviço',
+        'Tempo médio de fechamento (ciclo de vendas)',
+        'Custo de Aquisição de Cliente (CAC)',
+        'Receita por vendedor e por canal'
+      ]},
+      {type:'warning',content:'<strong>Erro comum:</strong> investir em tráfego e ignorar o processo de vendas. O lead chega, ninguém responde rápido, sem follow-up — e a oportunidade some. Marketing desperdiçado.'}
+    ]
+  },
+  ops:{
+    layer:'03 · Entrega & Sustentação', title:'Operações', accent:'#C9A84C',
+    subtitle:'Garantir que tudo que foi vendido seja entregue com qualidade e consistência.',
+    sections:[
+      {type:'text',label:'O que é',content:'Operações é a engrenagem que mantém a empresa funcionando no dia a dia. É onde a promessa feita pelo marketing e vendas <strong>se torna realidade para o cliente</strong>. Uma operação fraca quebra a escala mesmo com marketing e vendas funcionando bem.'},
+      {type:'highlights',label:'Componentes de Operações',items:[
+        {label:'Execução',value:'Entrega consistente do que foi vendido',detail:'Execução é a capacidade de entregar o que foi prometido, no prazo, com qualidade — repetidamente. Para escalar a execução, ela não pode depender de uma pessoa heroica. Precisa de processo documentado, checklist de entrega e ferramentas que reduzam a dependência do fator humano.'},
+        {label:'SLAs',value:'Acordos de nível de serviço — prazo e qualidade definidos',detail:'SLA (Service Level Agreement) é o contrato de expectativa: o cliente sabe o que vai receber, quando e com qual padrão. Internamente, o time sabe o que é "entregue com sucesso". Ex: "Relatório enviado até sexta-feira às 18h" ou "Resposta ao cliente em até 4 horas úteis". Sem SLA, cada entrega é uma surpresa — para ambos os lados.'},
+        {label:'Qualidade',value:'Padrão mínimo que não pode ser quebrado',detail:'Qualidade não é perfeição — é consistência acima de um patamar mínimo definido. Isso exige: critérios claros do que é "bom" (checklist), revisão antes da entrega, e coleta de feedback pós-entrega. O NPS do cliente é o termômetro da qualidade operacional.'}
+      ]},
+      {type:'list',label:'O que Operações garante',items:[
+        'Entrega dentro do prazo e com qualidade (SLAs)',
+        'Processos que funcionam sem depender de uma pessoa só',
+        'Capacidade de atender mais clientes sem caos',
+        'Identificação de gargalos antes de virarem problemas',
+        'Feedback da entrega alimenta o produto e os processos'
+      ]},
+      {type:'warning',content:'<strong>Sem operação sólida:</strong> cada cliente novo que entra cria mais caos. O time apaga incêndios em vez de escalar. A reputação vai por água abaixo.'}
+    ]
+  },
+  produto:{
+    layer:'03 · Entrega & Sustentação', title:'Produto', accent:'#C9A84C',
+    subtitle:'O valor real que a empresa entrega — e o que faz o cliente ficar ou ir embora.',
+    sections:[
+      {type:'text',label:'O que é',content:'Produto é o que a empresa vende — seja um serviço, software, curso ou consultoria. A qualidade do produto define <strong>se o cliente fica, indica ou cancela</strong>. Marketing pode encher o funil, mas produto ruim esvazia a base.'},
+      {type:'highlights',label:'Dimensões do Produto',items:[
+        {label:'Qualidade',value:'Entrega o que promete, sem surpresas negativas',detail:'Qualidade de produto é medida pela percepção do cliente, não pela percepção interna. O cliente comparou com a promessa que foi feita — se o resultado ficou abaixo, a qualidade falhou. Pesquisas de satisfação, NPS e reviews são os instrumentos mais honestos para medir qualidade real.'},
+        {label:'Melhoria',value:'Evolui com base no feedback real dos clientes',detail:'Produto que não evolui envelhece. O ciclo de melhoria contínua começa com coleta de feedback (NPS, entrevistas, suporte), priorização do que impacta mais clientes, implementação e comunicação da melhoria. Clientes que veem suas sugestões implementadas se tornam defensores da marca.'},
+        {label:'Roadmap',value:'Plano de evolução — o produto de amanhã',detail:'Roadmap é o mapa de onde o produto vai. Define as próximas funcionalidades, melhorias ou versões — com prazo e prioridade. Ele alinha expectativas internas (time de dev, vendas, CS) e externas (clientes que estão aguardando uma funcionalidade). Sem roadmap, o produto evolui ao acaso.'},
+        {label:'Posicionamento',value:'Por que esse produto, não o do concorrente?',detail:'Posicionamento responde: "Por que você, e não o outro?" Pode ser por resultado específico, por público nichado, por método exclusivo, por preço, por suporte, por velocidade. Um produto bem posicionado não compete no mesmo nível dos outros — ele ocupa uma categoria própria na mente do cliente.'}
+      ]},
+      {type:'warning',content:'<strong>Sem produto forte:</strong> retenção cai, churn sobe, indicações somem. Você passa a depender cada vez mais de marketing para repor clientes que saem — uma sangria constante.'}
+    ]
+  },
+  processos:{
+    layer:'03 · Entrega & Sustentação', title:'Processos & Playbooks', accent:'#C9A84C',
+    subtitle:'Padronizar para escalar — fazer a empresa funcionar sem depender de heróis.',
+    sections:[
+      {type:'text',label:'O que é',content:'Processos bem documentados transformam o conhecimento individual em <strong>inteligência organizacional</strong>. Um playbook é o manual de como fazer — o passo a passo, os critérios de qualidade. Com playbooks, contratar e treinar é rápido. Sem eles, cada pessoa reinventa a roda.'},
+      {type:'highlights',label:'Os 3 instrumentos de padronização',items:[
+        {label:'Playbooks',value:'Manual completo de como fazer cada entrega',detail:'Um playbook documenta: o objetivo da atividade, quem é responsável, o passo a passo detalhado, os critérios de qualidade e o que fazer quando algo der errado. Exemplos: Playbook de Onboarding de Cliente, Playbook de Gestão de Tráfego, Playbook de Vendas. É o que permite que qualquer pessoa bem treinada execute com o mesmo padrão.'},
+        {label:'SOPs',value:'Procedimentos padrão para tarefas repetitivas',detail:'SOP (Standard Operating Procedure) é a versão enxuta do playbook — um checklist passo a passo para tarefas recorrentes. Ex: "Checklist de publicação de post", "Rotina de fechamento financeiro mensal", "Processo de entrega de relatório ao cliente". Simples, direto, executável sem supervisão.'},
+        {label:'Treinamento',value:'Capacitar novos membros com consistência e velocidade',detail:'Com processos documentados, treinar um novo colaborador deixa de ser "ficar do lado dele durante semanas". Ele acessa o playbook, segue o SOP, tira dúvidas pontuais. O tempo de onboarding cai, o padrão de execução sobe. Treinamento vira sistema — não depende de quem tem paciência para ensinar.'}
+      ]},
+      {type:'list',label:'O que deve ser documentado primeiro',items:[
+        'Processo de vendas — do primeiro contato ao contrato',
+        'Onboarding de novos clientes (passo a passo)',
+        'Como produzir e entregar cada serviço ou produto',
+        'Scripts de atendimento e follow-up',
+        'Processo de contratação e treinamento de colaboradores'
+      ]},
+      {type:'warning',content:'<strong>Sem processos documentados:</strong> quando um colaborador sai, o conhecimento vai junto. Cada entrega depende da pessoa, não do método. Impossível escalar com consistência.'}
+    ]
+  },
+  cs:{
+    layer:'04 · Retenção', title:'Sucesso do Cliente', accent:'#6BCF6B',
+    subtitle:'Garantir que o cliente alcance o resultado que o levou a comprar.',
+    sections:[
+      {type:'text',label:'O que é',content:'Customer Success (CS) é a área responsável por garantir que o cliente <strong>tenha sucesso com o que comprou</strong>. Não é suporte reativo — é acompanhamento proativo. Um cliente que tem sucesso fica, compra mais e indica. Um que não tem, cancela e fala mal.'},
+      {type:'highlights',label:'Pilares do CS',items:[
+        {label:'Onboarding',value:'Primeiros dias são críticos para o sucesso',detail:'Os primeiros 30 dias definem se o cliente vai ficar ou cancelar. Um onboarding bem estruturado mostra ao cliente como extrair valor rapidamente: boas-vindas personalizado, configuração guiada, primeiro resultado entregue em até 7 dias, check-in na semana 2. Cliente que tem resultado rápido não cancela.'},
+        {label:'CS Proativo',value:'Acompanhamento antes do problema virar crise',detail:'CS reativo espera o cliente reclamar. CS proativo monitora sinais de insatisfação: queda no uso do produto, NPS abaixo de 7, fatura em atraso, silêncio prolongado. O CS entra em contato antes do cliente pensar em cancelar. Uma ligação de 15 minutos pode salvar um contrato de R$2.000/mês.'},
+        {label:'NPS',value:'Net Promoter Score — mede lealdade real',detail:'NPS é a pergunta: "De 0 a 10, o quanto você recomendaria nossa empresa para alguém?" Promotores (9–10): clientes que indicam. Neutros (7–8): satisfeitos mas não engajados. Detratores (0–6): insatisfeitos que podem falar mal. A fórmula: % Promotores − % Detratores. NPS acima de 50 é excelente. Meça todo trimestre.'}
+      ]},
+      {type:'highlights',label:'Métricas essenciais',items:[
+        {label:'Churn Rate',value:'Taxa de cancelamento mensal',detail:'Churn Rate = clientes que cancelaram ÷ total de clientes no início do período. Se você tem 100 clientes e 5 cancelam em um mês, seu churn é 5%. Em negócios de recorrência, mesmo 5% de churn mensal significa perder 46% da base em um ano. Meta: manter abaixo de 2%.'},
+        {label:'LTV',value:'Lifetime Value — valor total do cliente',detail:'LTV = Ticket Médio × Frequência de compra × Tempo médio de retenção. Se o cliente paga R$500/mês e fica em média 18 meses, o LTV é R$9.000. Com esse número você sabe quanto pode gastar para adquirir um cliente (CAC) sem destruir margem. LTV deve ser ao menos 3x o CAC.'}
+      ]}
+    ]
+  },
+  posvenda:{
+    layer:'04 · Retenção', title:'Pós-Venda', accent:'#6BCF6B',
+    subtitle:'A venda não termina no fechamento — começa ali.',
+    sections:[
+      {type:'text',label:'O que é',content:'Pós-venda é a estratégia de <strong>expandir o valor do cliente que já existe</strong>. Vender para quem já confia em você custa até 7x menos do que conquistar um cliente novo. É onde mora a lucratividade real de empresas que escalam com saúde.'},
+      {type:'highlights',label:'Estratégias de Expansão',items:[
+        {label:'Upsell',value:'Oferta de produto ou plano superior ao que usa',detail:'Upsell é oferecer ao cliente atual uma versão melhor do que ele já tem. Funciona quando o cliente já teve resultado com o plano atual e está pronto para o próximo nível. Timing ideal: após NPS positivo ou após entrega de resultado notável. Não é pressão — é oferta de mais valor para quem já confia.'},
+        {label:'Cross-sell',value:'Produto complementar ao que já comprou',detail:'Cross-sell é oferecer algo que complementa o que o cliente já usa. Ex: cliente que tem gestão de tráfego pode precisar de landing page ou produção de conteúdo. O cross-sell aumenta o LTV sem precisar conquistar um cliente novo. Funciona melhor quando o produto complementar resolve um problema que o cliente já mencionou.'},
+        {label:'Referral',value:'Programa de indicação com incentivo',detail:'Um cliente satisfeito indica — mas um programa de referral torna isso sistemático. Modelo: cliente indica, o indicado fecha, ambos ganham desconto ou crédito. Empresas como Airbnb e Dropbox cresceram majoritariamente por referral. O custo de aquisição via indicação é zero ou quase zero, e a taxa de conversão é muito maior pois vem com confiança embutida.'},
+        {label:'Comunidade',value:'Pertencimento que aumenta retenção naturalmente',detail:'Clientes que fazem parte de uma comunidade (grupo exclusivo, fórum, evento) cancelam menos porque a perda vai além do produto — perdem o acesso ao grupo. Comunidades criam conexão entre os próprios clientes, geram troca de experiências, aumentam o tempo de retenção e transformam clientes em defensores da marca.'}
+      ]},
+      {type:'warning',content:'<strong>Empresas que ignoram o pós-venda</strong> gastam todo o orçamento de marketing para adquirir clientes novos enquanto perdem os que já tinham. É como encher um balde furado.'}
+    ]
+  },
+  financeiro:{
+    layer:'05 · Base Estrutural', title:'Financeiro', accent:'#E8C96A',
+    subtitle:'A base que sustenta ou limita toda a escala da empresa.',
+    sections:[
+      {type:'text',label:'O que é',content:'O financeiro não é só "pagar contas". É a <strong>inteligência que define o que a empresa pode fazer</strong>: quanto pode investir em marketing, quando pode contratar, se pode reduzir preço, onde está a margem real. Uma empresa que não controla o financeiro escala no faturamento e quebra no caixa.'},
+      {type:'highlights',label:'Pilares Financeiros',items:[
+        {label:'Fluxo de Caixa',value:'Dinheiro que entra vs. que sai — mês a mês',detail:'Fluxo de caixa é o raio-x financeiro do mês: todas as entradas (recebimentos de clientes, investimentos) e saídas (fornecedores, salários, impostos, ferramentas) organizadas dia a dia. Uma empresa pode ser lucrativa no papel e quebrar por falta de caixa — se recebe em 60 dias mas paga em 30, precisa de reserva ou crédito para sobreviver.'},
+        {label:'Margem',value:'Quanto sobra depois de entregar o produto/serviço',detail:'Margem bruta = Receita − Custo direto de entrega. Margem líquida = o que sobra depois de todos os custos (fixos, variáveis, impostos). Empresas que crescem sem monitorar margem podem faturar R$100k e ter R$5k de lucro real. Conhecer a margem por produto permite focar no que é realmente rentável.'},
+        {label:'Previsibilidade',value:'Receita recorrente que permite planejar o crescimento',detail:'Receita recorrente (assinaturas, contratos mensais, retainers) é o alicerce da previsibilidade. Com receita previsível, a empresa consegue planejar contratações, investimentos em marketing e expansão com segurança. Empresas que dependem de vendas pontuais vivem em modo de sobrevivência — nunca investem com confiança.'},
+        {label:'Reinvestimento',value:'Quanto retorna para marketing, produto e time',detail:'Crescimento sustentável exige reinvestimento inteligente. Uma referência: 30–40% da receita líquida reinvestida em aquisição (marketing e vendas), 20% em produto/tecnologia, 20% em time, 20% de reserva. Empresas que distribuem todo o lucro travam o crescimento. As que reinvestem sem critério destroem caixa.'}
+      ]},
+      {type:'warning',content:'<strong>Sem controle financeiro:</strong> empresas faturam muito e quebram por falta de caixa. É mais comum do que parece — especialmente em fases de crescimento acelerado.'}
+    ]
+  },
+  ti:{
+    layer:'05 · Base Estrutural', title:'TI & Integrações', accent:'#9B7FCC',
+    subtitle:'A infraestrutura que conecta tudo e permite a automação da escala.',
+    sections:[
+      {type:'text',label:'O que é',content:'TI não é só "o pessoal do computador". É a <strong>espinha dorsal tecnológica</strong> que conecta marketing, vendas, operação e financeiro. Sem integração entre sistemas, o time perde horas em tarefas manuais, dados ficam desatualizados e a escala trava.'},
+      {type:'highlights',label:'O que TI conecta e automatiza',items:[
+        {label:'Automação',value:'Eliminar tarefas manuais repetitivas',detail:'Automação significa: lead que entra no formulário já vai direto para o CRM, já aciona um e-mail de boas-vindas, já notifica o vendedor no WhatsApp — sem ninguém apertar um botão. Ferramentas como Make (Integromat), Zapier e N8N conectam sistemas sem precisar de programação. Uma automação bem feita pode economizar 10–20 horas/semana do time.'},
+        {label:'CRM Integrado',value:'Marketing, vendas e CS falando a mesma língua',detail:'O problema mais comum: marketing usa uma ferramenta, vendas usa outra, CS usa outra. Os dados não conversam. Um CRM bem integrado centraliza tudo: o histórico do lead desde o primeiro clique no anúncio até o contrato assinado e os tickets de suporte. Isso permite decisões melhores em todas as áreas.'},
+        {label:'BI e Dados',value:'Dashboards que se atualizam sozinhos',detail:'Conectar fontes de dados (Meta Ads, Google Analytics, CRM, financeiro) em uma ferramenta de BI como Looker Studio ou Power BI gera dashboards que se atualizam em tempo real. O gestor olha um painel e vê: custo por lead hoje, vendas do mês, churn da semana, NPS do trimestre — sem pedir relatório para ninguém.'},
+        {label:'Segurança',value:'LGPD, backups e proteção de dados',detail:'Segurança digital inclui: conformidade com LGPD (proteção dos dados dos clientes), backups automáticos dos dados críticos, autenticação em dois fatores em todas as ferramentas, e política de acesso (quem pode ver o quê). Um vazamento de dados ou invasão pode paralisar operações e gerar passivos jurídicos sérios.'}
+      ]},
+      {type:'list',label:'Ferramentas por categoria',items:[
+        'CRM: HubSpot, RD Station, Pipedrive',
+        'Automação: Make (Integromat), Zapier, N8N',
+        'BI & Dados: Looker Studio, Power BI',
+        'Infraestrutura: AWS, Google Cloud, Cloudflare',
+        'Comunicação interna: Slack, Notion, Google Workspace'
+      ]}
+    ]
+  },
+  admin:{
+    layer:'05 · Base Estrutural', title:'Administrativo', accent:'#9B7FCC',
+    subtitle:'Suporte estrutural que mantém a empresa em ordem enquanto cresce.',
+    sections:[
+      {type:'text',label:'O que é',content:'O administrativo cuida da estrutura que permite que tudo mais funcione: <strong>contratos assinados, documentação em ordem, conformidade legal e backoffice organizado</strong>. Parece invisível — e é ótimo que seja. Quando falha, paralisa a empresa.'},
+      {type:'highlights',label:'Responsabilidades principais',items:[
+        {label:'Contratos',value:'Formalizar cada relação comercial com clareza',detail:'Todo serviço prestado ou recebido deve ter contrato: escopo definido, prazo, valor, forma de pagamento, cláusula de rescisão e multa. Contrato protege ambos os lados. A maioria dos conflitos com clientes começa em expectativas que não foram documentadas. Contrato assinado é prevenção, não desconfiança.'},
+        {label:'Fiscal & Tributário',value:'Notas fiscais, impostos e obrigações em dia',detail:'Emitir notas fiscais corretamente, recolher os impostos no prazo e manter as obrigações acessórias em dia evita multas e autuações que podem travar a empresa. A escolha do regime tributário (Simples, Lucro Presumido, Lucro Real) impacta diretamente a carga fiscal — vale revisar anualmente com um contador.'},
+        {label:'Fornecedores',value:'Gestão de parceiros e prestadores de serviço',detail:'Manter uma base de fornecedores qualificados, com contratos vigentes e avaliação de desempenho, reduz o risco operacional. Um fornecedor crítico que falha pode paralisar a entrega ao cliente. Diversificar fontes e manter alternativas ativas é gestão inteligente de risco.'}
+      ]}
+    ]
+  },
+  cultura:{
+    layer:'06 · Estrutura Organizacional', title:'Cultura', accent:'#8A9AB5',
+    subtitle:'O que a empresa realmente é — não o que está escrito no site.',
+    sections:[
+      {type:'text',label:'O que é',content:'Cultura é o conjunto de <strong>valores, comportamentos e rituais</strong> que definem como as pessoas da empresa agem — especialmente quando ninguém está olhando. É o que atrai os talentos certos, retém quem performa bem e expulsa naturalmente quem não se encaixa.'},
+      {type:'highlights',label:'Os elementos da Cultura',items:[
+        {label:'Valores',value:'Princípios que guiam decisões e comportamentos',detail:'Valores não são palavras bonitas no site — são comportamentos esperados e cobrados. "Transparência" como valor significa que feedbacks difíceis são dados diretamente, que erros são assumidos publicamente, que dados são compartilhados sem filtro político. Valores que não geram comportamento observável são decoração.'},
+        {label:'Rituais',value:'Práticas que reforçam a cultura no dia a dia',detail:'Rituais de cultura são encontros e práticas que mantêm a identidade viva: all-hands mensais, reconhecimento público de resultados, retrospectivas honestas, onboarding cultural para novos membros. Uma empresa sem rituais tem cultura acidental — definida pelas pessoas mais influentes do momento, não pelos fundadores.'}
+      ]},
+      {type:'list',label:'Como cultura impacta a escala',items:[
+        'Time alinhado na cultura executa mais rápido e com menos conflito',
+        'Contratações erradas custam tempo, dinheiro e energia',
+        'Rituais de cultura mantêm o time coeso em fases difíceis',
+        'Valores claros facilitam decisões difíceis sem precisar de aprovação'
+      ]}
+    ]
+  },
+  rh:{
+    layer:'06 · Estrutura Organizacional', title:'RH — Recursos Humanos', accent:'#8A9AB5',
+    subtitle:'Atrair, desenvolver e reter os talentos que fazem a empresa crescer.',
+    sections:[
+      {type:'text',label:'O que é',content:'RH moderno não é apenas "contratar e demitir". É a área que <strong>garante que a empresa tenha as pessoas certas, nos lugares certos, motivadas e desenvolvendo-se</strong>. Em empresas de marketing e escala, o time é o principal ativo.'},
+      {type:'highlights',label:'Pilares do RH',items:[
+        {label:'Recrutamento',value:'Processo seletivo que filtra pelo fit cultural',detail:'Contratar rápido porque precisa de gente é o erro mais caro no RH. Um bom processo seletivo avalia: competência técnica (o que a pessoa sabe fazer), comportamento (como ela age sob pressão, em conflito, em erro) e fit cultural (os valores dela se alinham com os da empresa?). Uma contratação errada custa em média 3x o salário do cargo.'},
+        {label:'Desenvolvimento',value:'Treinamentos e plano de carreira',detail:'Pessoas que não crescem, saem. Desenvolvimento inclui: acesso a cursos e treinamentos, mentoria interna, plano de carreira claro (o que precisa fazer para ser promovido?), e feedback regular. Empresas que investem em desenvolvimento retêm talentos por mais tempo e reduzem o custo de recrutamento.'},
+        {label:'Clima Organizacional',value:'NPS interno e pesquisas de satisfação do time',detail:'Clima organizacional é como o time se sente trabalhando na empresa. Medido via eNPS (Employee Net Promoter Score) — mesma lógica do NPS de cliente: "De 0 a 10, o quanto você indicaria nossa empresa como lugar para trabalhar?" Clima ruim gera alta rotatividade, baixa produtividade e conflitos que consomem energia de gestão.'}
+      ]}
+    ]
+  },
+  juridico:{
+    layer:'06 · Estrutura Organizacional', title:'Jurídico', accent:'#8A9AB5',
+    subtitle:'Proteger a empresa e garantir que o crescimento aconteça dentro da lei.',
+    sections:[
+      {type:'text',label:'O que é',content:'O jurídico é invisível quando funciona e devastador quando falha. Protege a empresa de <strong>litígios, garante conformidade com a lei e viabiliza negociações complexas</strong>. Em escala digital, LGPD, contratos de serviço e termos de uso são críticos.'},
+      {type:'highlights',label:'Frentes do Jurídico',items:[
+        {label:'Contratos',value:'Documentos que protegem a empresa em cada relação',detail:'Todo relacionamento comercial precisa de contrato: com clientes (escopo, prazo, pagamento, rescisão), com fornecedores (SLA, confidencialidade), com colaboradores (CLT ou PJ, IP, não-concorrência). Contratos mal redigidos são a principal causa de disputas judiciais em empresas de serviço.'},
+        {label:'LGPD',value:'Lei Geral de Proteção de Dados — conformidade obrigatória',detail:'A LGPD exige que toda empresa que coleta dados pessoais (nome, e-mail, telefone, comportamento de compra) tenha: política de privacidade clara, consentimento explícito do usuário, mecanismo para o cliente solicitar exclusão dos dados, e medidas de segurança para proteger essas informações. Multas por descumprimento chegam a 2% do faturamento.'},
+        {label:'Propriedade Intelectual',value:'Proteger marca, conteúdo e metodologias',detail:'Registrar a marca no INPI, proteger metodologias proprietárias com contratos de confidencialidade, e garantir que todo conteúdo produzido por prestadores seja transferido para a empresa via contrato. Sem isso, um ex-colaborador pode usar sua metodologia, ou um concorrente pode registrar sua marca antes de você.'}
+      ]}
+    ]
+  },
+  governanca:{
+    layer:'06 · Estrutura Organizacional', title:'Governança', accent:'#8A9AB5',
+    subtitle:'Estrutura de decisão que mantém a empresa íntegra enquanto cresce.',
+    sections:[
+      {type:'text',label:'O que é',content:'Governança é o conjunto de <strong>regras, políticas e estruturas</strong> que definem como as decisões são tomadas. Em fases de crescimento, sem governança, decisões viram caos: todo mundo decide, ninguém é responsável.'},
+      {type:'highlights',label:'Elementos de Governança',items:[
+        {label:'Políticas Internas',value:'O que pode, o que não pode — por escrito',detail:'Políticas internas documentam as regras do jogo: política de despesas (quem pode aprovar o quê), política de comunicação externa (quem fala em nome da empresa), política de segurança digital (quais ferramentas são permitidas), política de conflito de interesses. Sem políticas escritas, cada situação nova vira discussão.'},
+        {label:'Estrutura de Aprovação',value:'Quem decide o quê, com qual limite',detail:'Definir levels de aprovação evita gargalos e decisões inconsistentes. Ex: gastos até R$500 → aprovado pelo gestor direto. R$500–R$5k → diretoria. Acima de R$5k → sócio ou conselho. Isso libera o fundador para decisões estratégicas e dá autonomia ao time para o operacional.'},
+        {label:'Conselho',value:'Visão externa para decisões estratégicas',detail:'Um conselho consultivo (mesmo informal) traz perspectiva externa: mentores, especialistas ou investidores que revisam a estratégia, desafiam premissas e abrem portas. Não precisa ser formal — uma reunião trimestral com 2–3 advisors já muda a qualidade das decisões estratégicas e evita o viés do fundador.'}
+      ]}
+    ]
+  }
+};
+
+function openModal(key) {
+  const d = DATA[key]; if (!d) return;
+  document.getElementById('mLayerTag').textContent = d.layer;
+  const t = document.getElementById('mTitle');
+  t.textContent = d.title; t.style.color = d.accent;
+  document.getElementById('mSubtitle').textContent = d.subtitle;
+  const body = document.getElementById('mBody'); body.innerHTML = '';
+
+  d.sections.forEach(sec => {
+    const wrap = document.createElement('div'); wrap.className = 'm-section';
+    if (sec.label) {
+      const lbl = document.createElement('div'); lbl.className = 'm-section-title';
+      lbl.style.color = d.accent; lbl.style.borderBottomColor = d.accent + '30';
+      lbl.textContent = sec.label; wrap.appendChild(lbl);
+    }
+    if (sec.type === 'text') {
+      const p = document.createElement('p'); p.className = 'm-text'; p.innerHTML = sec.content; wrap.appendChild(p);
+    }
+    if (sec.type === 'highlights') {
+      const grid = document.createElement('div'); grid.className = 'm-highlights';
+      sec.items.forEach(item => {
+        const box = document.createElement('div'); box.className = 'm-highlight';
+        box.style.borderColor = d.accent + '22';
+        const header = document.createElement('div'); header.className = 'm-highlight-header';
+        const left = document.createElement('div'); left.style.flex = '1';
+        left.innerHTML = `<div class="m-highlight-label">${item.label}</div><div class="m-highlight-value" style="color:${d.accent}">${item.value}</div>`;
+        header.appendChild(left);
+        if (item.detail) {
+          const chev = document.createElement('div'); chev.className = 'm-highlight-chevron'; chev.textContent = '▾';
+          header.appendChild(chev);
+          const detail = document.createElement('div'); detail.className = 'm-highlight-detail'; detail.textContent = item.detail;
+          box.appendChild(header); box.appendChild(detail);
+          box.addEventListener('click', () => {
+            const isOpen = box.classList.contains('open');
+            box.parentElement.querySelectorAll('.m-highlight.open').forEach(el => el.classList.remove('open'));
+            if (!isOpen) box.classList.add('open');
+          });
+        } else {
+          box.appendChild(header);
+        }
+        grid.appendChild(box);
+      }); wrap.appendChild(grid);
+    }
+    if (sec.type === 'list') {
+      const list = document.createElement('div'); list.className = 'm-list';
+      sec.items.forEach(item => {
+        const li = document.createElement('div'); li.className = 'm-list-item';
+        li.innerHTML = item; list.appendChild(li);
+      }); wrap.appendChild(list);
+    }
+    if (sec.type === 'warning') {
+      const w = document.createElement('div'); w.className = 'm-warning'; w.innerHTML = sec.content; wrap.appendChild(w);
+    }
+    body.appendChild(wrap);
+  });
+
+  let styleEl = document.getElementById('dynamic-style');
+  if (!styleEl) { styleEl = document.createElement('style'); styleEl.id = 'dynamic-style'; document.head.appendChild(styleEl); }
+  styleEl.textContent = `.m-list-item::before { color: ${d.accent}; }`;
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Touch swipe-down to close on mobile
+(function() {
+  let startY = 0;
+  const modal = document.getElementById('modalBox');
+  modal.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  modal.addEventListener('touchend', e => {
+    if (modal.scrollTop === 0 && e.changedTouches[0].clientY - startY > 60) closeModal();
+  }, { passive: true });
+})();
+// ══════════════════════════════════════════
+// INTERACTIVE CYCLE BAR (MARQUEE) WITH MEMORY
+// ══════════════════════════════════════════
+const cycleBar = document.getElementById('cycleBar');
+const cycleWrapper = document.getElementById('cycleWrapper');
+let position = 0;
+let baseSpeed = -0.4; // Velocidade base reduzida para mais elegância
+let currentSpeed = baseSpeed;
+let isHovering = false;
+
+function animateMarquee() {
+  if (!isHovering) {
+    // Mantém a última velocidade/direção definida pelo mouse
+    currentSpeed = baseSpeed;
+  } 
+
+  position += currentSpeed;
+
+  const contentWidth = cycleWrapper.offsetWidth / 3;
+  
+  if (position <= -contentWidth) {
+    position = 0;
+  } else if (position > 0) {
+    position = -contentWidth;
+  }
+
+  cycleWrapper.style.transform = `translateX(${position}px)`;
+  requestAnimationFrame(animateMarquee);
+}
+
+cycleBar.addEventListener('mousemove', (e) => {
+  isHovering = true;
+  const rect = cycleBar.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const percent = x / rect.width;
+
+  if (percent < 0.4) {
+    baseSpeed = 1.5; // Velocidade manual reduzida (era 3)
+  } else if (percent > 0.6) {
+    baseSpeed = -1.5; // Velocidade manual reduzida (era 3)
+  } else {
+    currentSpeed = 0; // Para enquanto estiver no centro
+    return;
+  }
+  currentSpeed = baseSpeed;
+});
+
+cycleBar.addEventListener('mouseleave', () => {
+  isHovering = false;
+  // Ao sair, suaviza a velocidade para a velocidade de cruzeiro (0.4) 
+  // mas mantém o sinal (direção)
+  baseSpeed = (baseSpeed > 0) ? 0.4 : -0.4;
+});
+
+// Inicia a animação
+animateMarquee();
+</script>
+</body>
+</html>

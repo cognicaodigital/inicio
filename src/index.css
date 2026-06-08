@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased text-brand-text-dark bg-white font-sans;
+  }
+
+  h1 {
+    @apply font-black leading-[1.1] text-black;
+    font-family: 'League Spartan', sans-serif;
+    letter-spacing: -2px;
+  }
+
+  h1 span {
+    @apply text-brand-navy;
+  }
+
+  h2, h3, h4, h5, h6 {
+    @apply font-display tracking-[-0.03em] text-brand-navy font-black;
+  }
+}
+
+@layer components {
+  .btn-yellow {
+    @apply inline-flex items-center justify-center px-10 py-5 bg-brand-gold text-brand-navy font-black text-xs tracking-[0.2em] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-brand-gold/20 hover:shadow-xl hover:shadow-brand-gold/30;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center px-10 py-5 bg-brand-navy text-white font-black text-xs tracking-[0.2em] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-brand-navy/20;
+  }
+
+  .pill-badge {
+    @apply inline-block px-5 py-2 bg-neutral-100 rounded-full text-[9px] font-black tracking-[0.2em] text-brand-gold border border-neutral-200 shadow-sm;
+  }
+
+  .nav-link {
+    @apply font-sans text-sm font-bold tracking-tight text-brand-navy/90 hover:text-brand-gold transition-colors duration-300;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom Utilities based on photos */
+.text-italic-headline {
+  @apply font-black;
+}
+
+.bg-hero-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+}
