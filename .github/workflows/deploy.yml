@@ -34,14 +34,7 @@ jobs:
           rm -f package-lock.json
           npm install
       - name: Build
-        run: |
-          mkdir -p dist
-          npm run build > dist/build_log.txt 2>&1 || {
-            echo "Build failed! Storing log..."
-            mv dist/build_log.txt dist/error.txt
-            echo "Build failed" > dist/index.html
-            exit 0
-          }
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
