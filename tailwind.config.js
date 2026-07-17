@@ -1,28 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        'brand-white': '#FFFFFF',
-        'brand-navy': '#0F172A',
-        'brand-gold': '#FFCC00',
-        'brand-gray': '#F8FAFC',
-        'brand-text-dark': '#1E293B',
-        'brand-slate': '#455A75',
-        'brand-bronze': '#77512D',
+        'cd-navy':      '#0D1B2A',
+        'cd-blue':      '#1B3358',
+        'cd-gold':      '#C9A84C',
+        'cd-gold-light': '#F5E6C0',
+        'cd-light-bg':  '#0D1B2A', // Midnight usa navy como fundo principal
+        'cd-white':     '#FFFFFF',
+        'cd-dark':      '#1A1A2E',
+        'cd-gray':      '#6B7280',
+        'cd-divider':   '#1B3358',
+        'cd-red':       '#DC2626',
+        // Aliases para compatibilidade legada
+        'brand-navy':   '#0D1B2A',
+        'brand-gold':   '#C9A84C',
+        'cd-bg':        '#0D1B2A',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['League Spartan', 'sans-serif'],
       },
-      boxShadow: {
-        'premium': '0 20px 50px rgba(0, 0, 0, 0.05)',
-        'ultra': '0 30px 100px rgba(0, 0, 0, 0.1)',
-      }
     },
   },
   plugins: [],

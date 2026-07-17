@@ -3,56 +3,342 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
+  html { scroll-behavior: smooth; }
   body {
-    @apply antialiased text-brand-text-dark bg-white font-sans;
+    @apply bg-cd-navy text-cd-white antialiased;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
   }
-
-  h1 {
-    @apply font-black leading-[1.1] text-black;
+  h1,h2,h3,h4,h5,h6 {
     font-family: 'League Spartan', sans-serif;
-    letter-spacing: -2px;
+    letter-spacing: 0.02em !important;
+    line-height: 1.25 !important;
   }
-
-  h1 span {
-    @apply text-brand-navy;
+  h1 {
+    font-weight: 800 !important; /* Headline marcante mas limpo */
   }
-
   h2, h3, h4, h5, h6 {
-    @apply font-display tracking-[-0.03em] text-brand-navy font-black;
+    font-weight: 700 !important; /* Peso bold tradicional para máxima legibilidade */
   }
 }
 
 @layer components {
-  .btn-yellow {
-    @apply inline-flex items-center justify-center px-10 py-5 bg-brand-gold text-brand-navy font-black text-xs tracking-[0.2em] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-brand-gold/20 hover:shadow-xl hover:shadow-brand-gold/30;
-  }
-
-  .btn-navy {
-    @apply inline-flex items-center justify-center px-10 py-5 bg-brand-navy text-white font-black text-xs tracking-[0.2em] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-brand-navy/20;
-  }
-
-  .pill-badge {
-    @apply inline-block px-5 py-2 bg-neutral-100 rounded-full text-[9px] font-black tracking-[0.2em] text-brand-gold border border-neutral-200 shadow-sm;
-  }
-
-  .nav-link {
-    @apply font-sans text-sm font-bold tracking-tight text-brand-navy/90 hover:text-brand-gold transition-colors duration-300;
-  }
-
+  .container-cd { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full;
+  }
+
+  /* Gold button primary */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-xs tracking-widest text-cd-navy transition-all duration-300 hover:scale-105 active:scale-95;
+    background: linear-gradient(135deg, #C9A84C, #F5E6C0);
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+    letter-spacing: 0.12em;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 6px 25px rgba(201, 168, 76, 0.5);
+  }
+
+  /* Outline/Dark Navy button */
+  .btn-navy-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-xs tracking-widest text-cd-white border-2 border-cd-blue transition-all duration-300 hover:scale-105 active:scale-95;
+    background: transparent;
+    letter-spacing: 0.12em;
+  }
+  .btn-navy-outline:hover {
+    background: rgba(27, 51, 88, 0.2);
+    border-color: #C9A84C;
+  }
+
+  /* Light/Transparent button on Dark background */
+  .btn-white-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-xs tracking-widest text-cd-white border border-cd-white/30 transition-all duration-300 hover:scale-105 active:scale-95;
+    background: rgba(255, 255, 255, 0.05);
+    letter-spacing: 0.12em;
+  }
+  .btn-white-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Midnight Executive Card with Premium Glassmorphism */
+  .corp-card {
+    background: rgba(18, 30, 54, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(12px);
+    border-radius: 1.25rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .corp-card:hover {
+    border-color: rgba(201, 168, 76, 0.45) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(201,168,76,0.12) !important;
+    transform: translateY(-4px);
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .gold-underline {
+    display: inline-block;
+    position: relative;
+  }
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A84C, #1B3358);
+    border-radius: 99px;
   }
 }
 
-/* Custom Utilities based on photos */
-.text-italic-headline {
-  @apply font-black;
+/* Animations for graphic nodes in Hero */
+@keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes pulse-ring { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.08)} }
+@keyframes rotate-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.float-1 { animation: floatBadge 3.5s ease-in-out infinite; }
+.float-2 { animation: floatBadge 4.2s ease-in-out infinite 0.8s; }
+.pulse-ring { animation: pulse-ring 2.5s ease-in-out infinite; }
+.rotate-slow { animation: rotate-slow 20s linear infinite; }
+
+/* Global overrides for pages compatibility */
+.bg-white, .bg-slate-50, .bg-slate-100 {
+  background: radial-gradient(circle at 50% 0%, #16253F 0%, #0D1B2A 80%) !important;
+  color: #FFFFFF !important;
+}
+.bg-brand-navy {
+  background: radial-gradient(circle at 50% 0%, #16253F 0%, #0D1B2A 80%) !important;
+}
+.text-brand-navy {
+  color: #FFFFFF !important;
+}
+.bg-brand-gold {
+  background-color: #C9A84C !important;
+}
+.text-brand-gold {
+  color: #C9A84C !important;
+}
+.text-brand-navy\/40 {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+.text-brand-navy\/80 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.text-slate-500, .text-slate-600, .text-slate-400 {
+  color: #F5E6C0 !important;
+  opacity: 0.8;
 }
 
-.bg-hero-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+/* Form Styling overrides */
+input, textarea, select {
+  background-color: #121E36 !important;
+  border-color: #1B3358 !important;
+  color: #FFFFFF !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #C9A84C !important;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.15) !important;
+}
+
+/* Global button override */
+.btn-yellow, .btn-gold {
+  background: linear-gradient(135deg, #C9A84C, #F5E6C0) !important;
+  color: #0D1B2A !important;
+  font-weight: 800 !important;
+}
+
+.border-brand-gold {
+  border-color: #C9A84C !important;
+}
+.border-brand-gold\/30 {
+  border-color: rgba(201, 168, 76, 0.3) !important;
+}
+.border-l-4.border-brand-gold {
+  border-left-color: #C9A84C !important;
+}
+
+/* Box model adjustment */
+.bg-white.rounded-2xl, 
+.bg-white.rounded-3xl, 
+.bg-white.rounded-\[2\.5rem\],
+.bg-slate-50.rounded-\[2\.5rem\],
+.bg-white.rounded-\[4rem\],
+.bg-white\/5 {
+  background-color: rgba(18, 30, 54, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(12px);
+  color: #FFFFFF !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bg-slate-50.p-10:hover,
+.bg-white.p-10:hover,
+.bg-white.rounded-3xl:hover,
+.bg-white.rounded-2xl:hover {
+  background-color: rgba(22, 37, 63, 0.75) !important;
+  border-color: rgba(201, 168, 76, 0.45) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 168, 76, 0.12) !important;
+}
+
+/* Correções de visibilidade de texto e margens */
+.text-black, .text-slate-900, .text-slate-800, .text-brand-navy {
+  color: #FFFFFF !important;
+}
+.text-slate-700, .text-slate-600, .text-slate-500 {
+  color: #F5E6C0 !important;
+  opacity: 0.85;
+}
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Custom Premium mesh gradient backdrops */
+.bg-cd-navy {
+  background: radial-gradient(circle at 50% 0%, #16253F 0%, #0D1B2A 75%) !important;
+}
+
+.bg-\[\#121E36\]\/30 {
+  background: radial-gradient(circle at 50% 100%, #16253F 0%, #0D1B2A 75%) !important;
+}
+
+/* Button Glow on Hover */
+.btn-gold:hover, .btn-yellow:hover {
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.55), 0 4px 20px rgba(201, 168, 76, 0.3) !important;
+}
+
+/* Efeitos da Imagem e Badge de Empresas (Structure.jsx) */
+.structure-img {
+  filter: saturate(0.15) hue-rotate(190deg);
+  opacity: 0.5;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.group:hover .structure-img {
+  filter: saturate(0.85) hue-rotate(0deg) !important;
+  opacity: 0.85 !important;
+  transform: scale(1.05);
+}
+
+.structure-badge {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.structure-badge:hover {
+  border-color: rgba(201, 168, 76, 0.6) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 168, 76, 0.2) !important;
+}
+
+/* Efeitos do Gráfico Orbital (Hero.jsx) */
+.rotate-slow {
+  transition: animation-duration 0.8s ease !important;
+}
+.group:hover .rotate-slow {
+  animation-duration: 6s !important; /* Acelera rotação externa no hover do pai */
+}
+
+.connection-line-orbit {
+  transition: all 0.6s ease !important;
+}
+.group:hover .connection-line-orbit {
+  stroke: #C9A84C !important;
+  stroke-opacity: 0.9 !important;
+  stroke-width: 1.5px !important;
+}
+
+.connection-line-orbit-blue {
+  transition: all 0.6s ease !important;
+}
+.group:hover .connection-line-orbit-blue {
+  stroke: #C9A84C !important;
+  stroke-opacity: 0.75 !important;
+  stroke-width: 1.5px !important;
+}
+
+/* --- ADICIONAIS VIBRANTES E ANIMADOS (ALIVE DESIGN) --- */
+
+/* Fundo Dinâmico Respirando */
+@keyframes ambientBreathe {
+  0%, 100% {
+    background: radial-gradient(circle at 50% 0%, #152A4A 0%, #08111D 80%) !important;
+  }
+  50% {
+    background: radial-gradient(circle at 50% 20%, #1A3763 0%, #050B12 90%) !important;
+  }
+}
+
+.bg-white, .bg-slate-50, .bg-slate-100, .bg-cd-navy, .bg-brand-navy {
+  animation: ambientBreathe 15s ease-in-out infinite !important;
+}
+
+/* Brilho Suave em Textos Dourados Importantes */
+.text-cd-gold, .text-brand-gold, span[style*="color: #C9A84C"], span[style*="color: rgb(201, 168, 76)"] {
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.2);
+}
+
+/* Animação Pulsante Vibrante para Badges e Selos */
+.pill-badge {
+  border: 1px solid rgba(201, 168, 76, 0.3) !important;
+  animation: badgeGlow 4s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.1);
+    border-color: rgba(201, 168, 76, 0.3) !important;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.35);
+    border-color: rgba(201, 168, 76, 0.6) !important;
+  }
+}
+
+/* Hover de Cards mais Emocionante e com Mais Elevação */
+.corp-card:hover,
+.bg-white.rounded-3xl:hover,
+.bg-white.rounded-2xl:hover,
+.bg-slate-50.p-10:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: rgba(201, 168, 76, 0.6) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(201, 168, 76, 0.25) !important;
+}
+
+/* Ajuste fino para os botões acenderem com gradiente reflexivo */
+.btn-gold, .btn-yellow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::after, .btn-yellow::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-25deg);
+  transition: none;
+}
+.btn-gold:hover::after, .btn-yellow:hover::after {
+  left: 150%;
+  transition: all 0.8s ease-in-out;
 }

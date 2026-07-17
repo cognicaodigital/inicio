@@ -4,51 +4,73 @@ import { Dna, Compass, Layers, TrendingUp } from 'lucide-react';
 import content from '../data/content.json';
 
 const methodIcons = [Dna, Compass, Layers, TrendingUp];
+const methodNums = ['01','02','03','04'];
 
 const Method = () => {
   const { method } = content.home;
-
   return (
-    <section className="py-32 section-container">
-      <div className="text-center mb-24">
-        <h2 className="text-3xl lg:text-4xl mb-6 relative inline-block">
-          {method.title}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-brand-gold rounded-full"></div>
-        </h2>
-      </div>
+    <section className="py-28 bg-cd-navy">
+      <div className="container-cd">
+        {/* Header */}
+        <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
+          className="text-center mb-16">
+          <h2 className="font-black text-cd-white inline-block relative"
+            style={{fontSize:'clamp(1.8rem,4vw,2.8rem)',letterSpacing:'-0.02em'}}>
+            {method.title}
+            <span className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
+              style={{background:'linear-gradient(90deg,#C9A84C,#1B3358)'}}/>
+          </h2>
+        </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-        {/* Connection lines (desktop only) */}
-        <div className="hidden lg:block absolute top-[25%] left-0 w-full h-[1px] bg-slate-100 -z-10"></div>
+        {/* Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {method.columns.map((item, i) => {
+            const Icon = methodIcons[i];
+            return (
+              <motion.div key={i}
+                initial={{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
+                transition={{duration:0.6,delay:i*0.12}}
+                className="corp-card group relative overflow-hidden p-7">
 
-        {method.columns.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group bg-white border border-brand-navy/25 p-10 rounded-[3rem] shadow-lg hover:shadow-2xl hover:border-brand-gold/40 transition-all duration-500 relative overflow-hidden"
-          >
-            {/* Glow effect on hover */}
-            <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-brand-gold/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                {/* Ghost number */}
+                <div className="absolute -top-3 -right-2 font-black select-none pointer-events-none"
+                  style={{fontSize:'6rem',lineHeight:'1',color:'rgba(201,168,76,0.06)',letterSpacing:'-0.04em',fontFamily:'League Spartan,sans-serif'}}>
+                  {methodNums[i]}
+                </div>
 
-            <div className="relative z-10 mb-10 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-[1.5rem] bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-navy group-hover:scale-110 transition-all duration-500 shadow-inner">
-                {React.createElement(methodIcons[index] || Dna, { size: 28, strokeWidth: 1.5 })}
-              </div>
-            </div>
-            <h3 className="relative z-10 text-xl font-black mb-6 text-center tracking-tight">
-              {item.title}
-            </h3>
-            <p className="relative z-10 text-slate-500 text-sm font-medium leading-relaxed text-center">
-              {item.desc}
-            </p>
-          </motion.div>
-        ))}
+                {/* Icon circle */}
+                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-5 transition-all duration-400 group-hover:scale-110 relative z-10"
+                  style={{background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.25)'}}>
+                  <Icon size={18} color="#C9A84C" strokeWidth={1.8}/>
+                </div>
+
+                {/* Tag */}
+                <div className="text-[8px] font-black mb-2 relative z-10"
+                  style={{letterSpacing:'0.22em',color:'#C9A84C'}}>
+                  {item.tag}
+                </div>
+
+                {/* Title */}
+                <h3 className="font-black text-cd-white mb-3 relative z-10"
+                  style={{fontSize:'1rem',letterSpacing:'-0.005em',lineHeight:'1.2'}}>
+                  {item.title}
+                </h3>
+
+                {/* Desc */}
+                <p className="text-cd-white/70 relative z-10"
+                  style={{fontSize:'0.8rem',lineHeight:'1.75',letterSpacing:'0.01em'}}>
+                  {item.desc}
+                </p>
+
+                {/* Bottom gold line */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                  style={{background:'linear-gradient(90deg,#C9A84C,#1B3358)'}}/>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 };
-
 export default Method;

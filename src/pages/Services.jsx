@@ -153,9 +153,9 @@ const Services = () => {
                   <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-gold mb-8 shadow-sm group-hover:scale-110 transition-transform">
                     <Icon size={28} />
                   </div>
-                  <h3 className="text-xl font-black mb-6 tracking-tight leading-tight group-hover:text-brand-gold transition-colors">
+                  <h2 className="text-xl font-black mb-6 tracking-tight leading-tight group-hover:text-brand-gold transition-colors">
                     {service.title}
-                  </h3>
+                  </h2>
                   <p className="text-base text-slate-500 leading-relaxed font-medium mb-8 flex-grow">
                     {service.desc}
                   </p>
