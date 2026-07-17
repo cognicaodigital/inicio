@@ -4,6 +4,7 @@
     "posicionamento": "Consultoria Estratégica em Marketing Digital",
     "slogan": "Estratégia cognitiva em marketing digital.",
     "principle": "Estratégia antes da execução.",
+    "description": "A Cognição Digital possui sede em Trindade–GO, realiza atendimentos presenciais mediante agendamento e atende clientes on-line em todo o Brasil.",
     "domain": "https://cognicaodigittal.com",
     "email": "cognicao.digittal@gmail.com",
     "phone": "(62) 98314-7466",
@@ -13,15 +14,6 @@
       "Consultoria estratégica em marketing digital",
       "Criação de sites institucionais e landing pages",
       "Diagnóstico e estruturação de presença digital"
-    ],
-    "address": {
-      "city": "Trindade",
-      "state": "GO",
-      "country": "Brasil"
-    },
-    "geo": {
-      "latitude": "-16.6494",
-      "longitude": "-49.4930"
-    }
+    ]
   }
 }

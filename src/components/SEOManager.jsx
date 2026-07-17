@@ -3,10 +3,10 @@ import { useLocation } from 'react-router-dom';
 import seoData from '../data/seoData.json';
 
 const SEOManager = ({ title, description, noindex = false }) => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    // 1. Título e Descrição
+    // 1. Título e Descrição da aba
     const baseTitle = seoData.company.name;
     const fullTitle = title ? `${title} | ${baseTitle}` : `${baseTitle} | ${seoData.company.posicionamento}`;
     const fullDesc = description || seoData.company.slogan;
@@ -23,8 +23,7 @@ const SEOManager = ({ title, description, noindex = false }) => {
     metaDesc.content = fullDesc;
 
     // 2. URL Canônica
-    const cleanPath = location.pathname;
-    const canonicalUrl = `${seoData.company.domain}${cleanPath === '/' ? '' : cleanPath}`;
+    const canonicalUrl = `${seoData.company.domain}${pathname === '/' ? '' : pathname}`;
     
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
@@ -34,7 +33,7 @@ const SEOManager = ({ title, description, noindex = false }) => {
     }
     linkCanonical.href = canonicalUrl;
 
-    // 3. Robots (Indexabilidade / Noindex)
+    // 3. Robots (Indexabilidade / Noindex dinâmico)
     let metaRobots = document.querySelector('meta[name="robots"]');
     if (noindex) {
       if (!metaRobots) {
@@ -42,7 +41,7 @@ const SEOManager = ({ title, description, noindex = false }) => {
         metaRobots.name = 'robots';
         document.head.appendChild(metaRobots);
       }
-      metaRobots.content = 'noindex, nofollow';
+      metaRobots.content = typeof noindex === 'string' ? noindex : 'noindex, nofollow';
     } else {
       if (metaRobots) {
         metaRobots.remove();
@@ -78,13 +77,48 @@ const SEOManager = ({ title, description, noindex = false }) => {
     setMetaProperty('twitter:description', fullDesc, true);
     setMetaProperty('twitter:image', shareImg, true);
 
-    // 5. Dados Estruturados JSON-LD
+    // 5. Google Analytics Otimizado e Seguro
+    const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    const isValidGA = gaId && gaId.startsWith('G-') && !gaId.includes('PLACEHOLDER');
+
+    if (isValidGA) {
+      // Carregar gtag.js se não existir
+      let gtagScript = document.getElementById('gtag-script');
+      if (!gtagScript) {
+        gtagScript = document.createElement('script');
+        gtagScript.id = 'gtag-script';
+        gtagScript.async = true;
+        gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+        document.head.appendChild(gtagScript);
+      }
+
+      // Inicializar window.dataLayer e window.gtag
+      if (!window.dataLayer) {
+        window.dataLayer = [];
+      }
+      if (!window.gtag) {
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+      }
+
+      // Registrar a visualização de página dinamicamente no SPA
+      window.gtag('config', gaId, { page_path: pathname });
+    }
+
+    // 6. Dados Estruturados JSON-LD (Apenas Organization e WebSite conectados por @id)
     const orgSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${seoData.company.domain}/#organization`,
       "name": seoData.company.name,
+      "legalName": seoData.company.name,
+      "alternateName": "CD Strategy",
       "url": seoData.company.domain,
       "logo": `${seoData.company.domain}/logo-og.png`,
+      "description": seoData.company.description,
+      "email": seoData.company.email,
+      "telephone": seoData.company.phoneFormatted,
+      "foundingDate": "2024-01-15",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": seoData.company.phoneFormatted,
@@ -93,6 +127,12 @@ const SEOManager = ({ title, description, noindex = false }) => {
         "areaServed": "BR",
         "availableLanguage": "Portuguese"
       },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Trindade–GO" },
+        { "@type": "AdministrativeArea", "name": "Goiânia–GO" },
+        { "@type": "AdministrativeArea", "name": "Região Metropolitana de Goiânia" },
+        { "@type": "AdministrativeArea", "name": "Brasil" }
+      ],
       "sameAs": [
         "https://instagram.com/cognicao.digital",
         "https://linkedin.com/in/cognicaodigital"
@@ -102,39 +142,12 @@ const SEOManager = ({ title, description, noindex = false }) => {
     const websiteSchema = {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${seoData.company.domain}/#website`,
       "name": seoData.company.name,
-      "url": seoData.company.domain
-    };
-
-    const localBusinessSchema = {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": seoData.company.name,
-      "image": `${seoData.company.domain}/logo-og.png`,
-      "telephone": seoData.company.phoneFormatted,
-      "email": seoData.company.email,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": seoData.company.address.city,
-        "addressRegion": seoData.company.address.state,
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": seoData.company.geo.latitude,
-        "longitude": seoData.company.geo.longitude
-      },
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Trindade"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Goiânia"
-        }
-      ],
-      "url": seoData.company.domain
+      "url": seoData.company.domain,
+      "publisher": {
+        "@id": `${seoData.company.domain}/#organization`
+      }
     };
 
     let scriptJsonLd = document.getElementById('jsonld-seo');
@@ -144,12 +157,9 @@ const SEOManager = ({ title, description, noindex = false }) => {
       scriptJsonLd.type = 'application/ld+json';
       document.head.appendChild(scriptJsonLd);
     }
-    scriptJsonLd.innerHTML = JSON.stringify([orgSchema, websiteSchema, localBusinessSchema]);
+    scriptJsonLd.innerHTML = JSON.stringify([orgSchema, websiteSchema]);
 
-    return () => {
-      // Limpeza opcional se necessário ao desmontar, mas bom manter para crawlers
-    };
-  }, [title, description, noindex, location]);
+  }, [title, description, noindex, pathname]);
 
   return null;
 };

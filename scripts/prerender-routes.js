@@ -12,12 +12,12 @@ if (!existsSync(indexHtmlPath)) {
 
 const indexContent = readFileSync(indexHtmlPath, 'utf8');
 
-// 1. Copiar index.html para 404.html (Essencial para fallback no GitHub Pages)
+// 1. Copiar index.html para 404.html (Geração de arquivos físicos de fallback para rotas do GitHub Pages)
 const path404 = join(distDir, '404.html');
 writeFileSync(path404, indexContent, 'utf8');
-console.log('404.html criado em dist/ para suporte a fallback de rotas! 🚀');
+console.log('404.html criado em dist/ para fallback de rotas! 🚀');
 
-// 2. Lista de rotas do projeto para gerar páginas físicas (SSG)
+// 2. Lista de rotas do projeto para gerar pastas físicas de fallback
 const routes = [
   'sobre',
   'servicos',
@@ -36,7 +36,7 @@ routes.forEach((route) => {
   const routeDir = join(distDir, route);
   mkdirSync(routeDir, { recursive: true });
   writeFileSync(join(routeDir, 'index.html'), indexContent, 'utf8');
-  console.log(`Pré-renderizado fisicamente: /${route}/index.html`);
+  console.log(`Fallback físico gerado: /${route}/index.html`);
 });
 
-console.log('Fase de Pré-renderização estática concluída com sucesso! 🚀');
+console.log('Geração de arquivos físicos de fallback para rotas do GitHub Pages, com renderização das páginas e metadados pelo React no navegador finalizada! 🚀');

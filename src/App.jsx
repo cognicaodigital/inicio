@@ -64,18 +64,18 @@ function AppContent() {
               <Route path="/servicos" element={<><SEOManager title="Nossos Serviços" description="Criação de sites institucionais, landing pages premium, SEO local e automação inteligente." /><Services /></>} />
               <Route path="/cases" element={<><SEOManager title="Casos de Sucesso" description="Veja os resultados reais alcançados pelos nossos clientes através de ecossistemas digitais." /><Cases /></>} />
               <Route path="/cases/:id" element={<><SEOManager title="Detalhes do Caso" description="Análise profunda e resultados obtidos neste caso de sucesso." /><CaseDetail /></>} />
-              <Route path="/cases/preview" element={<><SEOManager title="Visualização de Layout" description="Visualizador interativo de modelo de site em tamanho real." noindex={true} /><CasePreview /></>} />
+              <Route path="/cases/preview" element={<><SEOManager title="Visualização de Layout" description="Visualizador interativo de modelo de site em tamanho real." noindex="noindex, nofollow" /><CasePreview /></>} />
               <Route path="/cases/templates" element={<><SEOManager title="Biblioteca de Modelos" description="Explore nossa biblioteca interativa com layouts profissionais construídos sob medida." /><TemplatesCatalog /></>} />
               <Route path="/diagnostico" element={<><SEOManager title="Diagnóstico de Presença Digital" description="Faça uma análise gratuita do posicionamento digital da sua empresa em poucos minutos." /><Diagnostic /></>} />
               <Route path="/orcamento" element={<><SEOManager title="Solicitar Orçamento" description="Peça uma proposta personalizada para estruturação do seu projeto digital premium." /><Budget /></>} />
-              <Route path="/apresentacao" element={<><SEOManager title="Apresentação Comercial" description="Apresentação institucional da consultoria estratégica Cognição Digital." noindex={true} /><Presentation /></>} />
-              <Route path="/upgrade" element={<><SEOManager title="Upgrade Digital" description="Acelere o crescimento de sua empresa migrando para a máquina de vendas premium." noindex={true} /><Upgrade /></>} />
-              <Route path="/proposta" element={<><SEOManager title="Proposta" noindex={true} /><Placeholder name="Proposta" /></>} />
-              <Route path="/privacidade" element={<><SEOManager title="Política de Privacidade" description="Termos de privacidade e proteção de dados da Cognição Digital." noindex={true} /><LegalPage type="privacy" /></>} />
-              <Route path="/termos" element={<><SEOManager title="Termos de Uso" description="Termos de uso do ecossistema digital da Cognição Digital." noindex={true} /><LegalPage type="terms" /></>} />
+              <Route path="/apresentacao" element={<><SEOManager title="Apresentação Comercial" description="Apresentação institucional da consultoria estratégica Cognição Digital." noindex="noindex, nofollow" /><Presentation /></>} />
+              <Route path="/upgrade" element={<><SEOManager title="Upgrade Digital" description="Acelere o crescimento de sua empresa migrando para a máquina de vendas premium." noindex="noindex, nofollow" /><Upgrade /></>} />
+              <Route path="/proposta" element={<><SEOManager title="Proposta" noindex="noindex, nofollow" /><Placeholder name="Proposta" /></>} />
+              <Route path="/privacidade" element={<><SEOManager title="Política de Privacidade" description="Termos de privacidade e proteção de dados da Cognição Digital." noindex="noindex, follow" /><LegalPage type="privacy" /></>} />
+              <Route path="/termos" element={<><SEOManager title="Termos de Uso" description="Termos de uso do ecossistema digital da Cognição Digital." noindex="noindex, follow" /><LegalPage type="terms" /></>} />
               <Route path="/briefing" element={<><SEOManager title="Briefing Online" description="Envie as especificações técnicas e objetivos comerciais do seu novo projeto." /><Briefing /></>} />
               <Route path="/academia" element={<><SEOManager title="Academia Cognição" description="Conhecimento estratégico para negócios digitais. Cursos, trilhas e materiais sobre marketing e tecnologia." /><Academy /></>} />
-              <Route path="/area-do-aluno" element={<><SEOManager title="Área do Aluno" description="Acesse seu painel de aprendizado da Academia Cognição Digital." noindex={true} /><StudentArea /></>} />
+              <Route path="/area-do-aluno" element={<><SEOManager title="Área do Aluno" description="Acesse seu painel de aprendizado da Academia Cognição Digital." noindex="noindex, nofollow" /><StudentArea /></>} />
             </Routes>
           </PageWrapper>
         </Suspense>
