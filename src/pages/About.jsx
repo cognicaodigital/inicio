@@ -126,7 +126,7 @@ const About = () => {
                 className="p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-brand-gold transition-all duration-500 group"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-navy transition-all">
+                  <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:!text-[#0D1B2A] transition-all">
                     <CheckCircle2 size={20} />
                   </div>
                   <h3 className="text-lg font-black text-white tracking-tight">{value.title}</h3>

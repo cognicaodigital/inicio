@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /area-do-aluno
+Disallow: /cases/preview
+Disallow: /proposta
+Disallow: /apresentacao
+Disallow: /upgrade
+
+# Permitir OAI-SearchBot (Busca em Tempo Real da OpenAI / ChatGPT Search)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /area-do-aluno
+Disallow: /cases/preview
+Disallow: /proposta
+Disallow: /apresentacao
+Disallow: /upgrade
+
+# Bloquear GPTBot (Treinamento de IA Generativa da OpenAI)
+User-agent: GPTBot
+Disallow: /
+
+Sitemap: https://cognicaodigittal.com/sitemap.xml

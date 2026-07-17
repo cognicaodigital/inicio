@@ -8,21 +8,12 @@ import CTA from '../components/CTA';
 
 const Home = () => {
   return (
-    <div className="bg-white min-h-screen">
-      {/* Imagem 1: Hero */}
+    <div className="bg-cd-navy min-h-screen">
       <Hero />
-
-      {/* Nossa Atuação e Serviços */}
       <Atuacao />
       <Services />
-
-      {/* Método de Inteligência Digital */}
       <Method />
-
-      {/* Seção Negócios que Estruturamos (Fundo Navy) */}
       <Structure />
-
-      {/* Imagens 6 & 7: CTA Final */}
       <CTA />
     </div>
   );

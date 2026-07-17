@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cognição Digital | Estratégia Cognitiva em Marketing Digital</title>
+  <meta name="description" content="Arquitetura e Estruturação de Ecossistemas Digitais de Alta Performance. Transforme sua operação em uma máquina de vendas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=League+Spartan:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:      #060C17;
+      --navy:      #0D1B35;
+      --navy2:     #0F2044;
+      --blue:      #1A3A6B;
+      --accent:    #2563EB;
+      --cyan:      #38BDF8;
+      --silver:    #94A3B8;
+      --silver2:   #CBD5E1;
+      --white:     #FFFFFF;
+      --text:      #E2E8F0;
+      --muted:     #64748B;
+      --gold:      #F59E0B;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    /* ---- UTILS ---- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 6rem 0; }
+    .section-sm { padding: 4rem 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1.25rem;
+    }
+    .section-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--silver);
+      line-height: 1.85;
+      letter-spacing: 0.01em;
+      max-width: 560px;
+    }
+    .accent-line {
+      width: 3rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      border-radius: 99px;
+      margin: 1.25rem 0 2.5rem;
+      box-shadow: 0 0 12px rgba(37,99,235,0.5);
+    }
+    .accent-line.center { margin-left: auto; margin-right: auto; }
+
+    /* ---- BUTTONS ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.1rem 2.5rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #1A3A6B, #2563EB);
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(37,99,235,0.35);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 12px 40px rgba(37,99,235,0.55);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: rgba(56,189,248,0.07);
+      color: var(--cyan);
+      border: 1.5px solid rgba(56,189,248,0.35);
+    }
+    .btn-ghost:hover {
+      background: rgba(56,189,248,0.14);
+      border-color: rgba(56,189,248,0.7);
+      box-shadow: 0 0 24px rgba(56,189,248,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ---- GLASS CARD ---- */
+    .glass-card {
+      background: rgba(13,27,53,0.55);
+      border: 1px solid rgba(37,99,235,0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1.25rem;
+      transition: all 0.4s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(37,99,235,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(37,99,235,0.1);
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(6,12,23,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(37,99,235,0.15);
+      padding: 0.75rem 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .navbar-logo img { height: 36px; }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .navbar-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--silver);
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--cyan);
+      transition: width 0.3s;
+    }
+    .navbar-links a:hover { color: var(--cyan); }
+    .navbar-links a:hover::after { width: 100%; }
+    .navbar-cta {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      padding: 0.6rem 1.4rem;
+    }
+
+    /* ---- HERO ---- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #060C17 0%, #0D1B35 60%, #060C17 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+    .hero-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+      top: -100px; left: -100px;
+    }
+    .hero-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
+      bottom: -100px; right: -50px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.3);
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .hero-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #38BDF8, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--silver);
+      max-width: 620px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+      letter-spacing: 0.015em;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(37,99,235,0.15);
+    }
+    .hero-stat-value {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #38BDF8, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ---- SERVICES STRIP ---- */
+    #services {
+      background: linear-gradient(180deg, #060C17 0%, #0D1B35 100%);
+      padding: 6rem 0;
+    }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      transition: width 0.5s ease;
+    }
+    .service-card:hover::after { width: 100%; }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.4s;
+      font-size: 1.4rem;
+    }
+    .service-card:hover .service-icon {
+      background: rgba(37,99,235,0.25);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(37,99,235,0.3);
+    }
+    .service-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--silver);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+
+    /* ---- METHOD (TIMELINE) ---- */
+    #method {
+      background: var(--dark);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .method-bg-line {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(37,99,235,0.2), rgba(37,99,235,0.2), transparent);
+      display: none;
+    }
+    @media(min-width: 1024px) { .method-bg-line { display: block; } }
+    .method-header { text-align: center; margin-bottom: 4rem; }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .method-card {
+      padding: 2rem 1.75rem;
+      text-align: center;
+    }
+    .method-number {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .method-icon-wrap {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.5rem;
+      transition: all 0.4s;
+    }
+    .method-card:hover .method-icon-wrap {
+      background: rgba(37,99,235,0.22);
+      transform: scale(1.1);
+    }
+    .method-tag {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+    .method-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.005em;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .method-desc {
+      font-size: 0.825rem;
+      color: var(--silver);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+
+    /* ---- STRUCTURE (SPLIT) ---- */
+    #structure {
+      background: linear-gradient(160deg, #0D1B35 0%, #060C17 100%);
+      padding: 7rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #structure::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .structure-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    @media(max-width: 900px) { .structure-inner { grid-template-columns: 1fr; gap: 3rem; } }
+    .structure-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .structure-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.875rem;
+      background: rgba(13,27,53,0.5);
+      border: 1px solid rgba(37,99,235,0.12);
+      transition: all 0.3s;
+    }
+    .structure-item:hover {
+      border-color: rgba(37,99,235,0.35);
+      background: rgba(13,27,53,0.8);
+      transform: translateX(6px);
+    }
+    .structure-check {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.75rem;
+    }
+    .structure-item p {
+      font-size: 0.9rem;
+      color: var(--silver2);
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+    .structure-image-wrap {
+      position: relative;
+    }
+    .structure-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(37,99,235,0.2);
+      filter: saturate(0.3) hue-rotate(200deg);
+      opacity: 0.55;
+      transition: all 0.8s;
+    }
+    .structure-img:hover { opacity: 0.75; }
+    .structure-img-overlay {
+      position: absolute; inset: 0;
+      border-radius: 1.5rem;
+      background: linear-gradient(to top, #060C17 0%, transparent 50%);
+    }
+    .structure-badge {
+      position: absolute;
+      bottom: -1.5rem; right: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.75rem;
+      border-radius: 1rem;
+      background: rgba(13,27,53,0.95);
+      border: 1px solid rgba(37,99,235,0.3);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .badge-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(37,99,235,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .badge-value {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #38BDF8, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .badge-label {
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* ---- CTA SECTION ---- */
+    #cta {
+      padding: 6rem 0;
+      background: var(--dark);
+    }
+    .cta-box {
+      position: relative;
+      border-radius: 2rem;
+      padding: 5rem 3rem;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0D1B35, #0F2044, #0D1B35);
+      border: 1px solid rgba(37,99,235,0.25);
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, rgba(37,99,235,0.25) 0%, transparent 70%);
+    }
+    .cta-corner { position: absolute; }
+    .cta-corner.tl { top: 0; left: 0; width: 80px; height: 1.5px; background: linear-gradient(90deg, #2563EB, transparent); }
+    .cta-corner.tl-v { top: 0; left: 0; width: 1.5px; height: 80px; background: linear-gradient(180deg, #2563EB, transparent); }
+    .cta-corner.br { bottom: 0; right: 0; width: 80px; height: 1.5px; background: linear-gradient(270deg, #38BDF8, transparent); }
+    .cta-corner.br-v { bottom: 0; right: 0; width: 1.5px; height: 80px; background: linear-gradient(0deg, #38BDF8, transparent); }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .cta-title span {
+      background: linear-gradient(135deg, #38BDF8, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--silver);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.85;
+      letter-spacing: 0.015em;
+    }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #030710;
+      border-top: 1px solid rgba(37,99,235,0.12);
+      padding: 5rem 0 2.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    @media(max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media(max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-logo { height: 40px; margin-bottom: 1.5rem; }
+    .footer-tagline {
+      font-size: 0.825rem;
+      color: var(--silver);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.75rem;
+    }
+    .footer-socials { display: flex; gap: 0.6rem; }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.2);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      color: var(--silver);
+      font-size: 0.75rem;
+      transition: all 0.3s;
+    }
+    .social-btn:hover { background: rgba(37,99,235,0.25); color: var(--cyan); transform: translateY(-2px); }
+    .footer-heading {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--silver);
+      letter-spacing: 0.01em;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-info-item { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .footer-info-icon { font-size: 0.875rem; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .footer-info-label {
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver2);
+      margin-bottom: 0.35rem;
+    }
+    .footer-info-text {
+      font-size: 0.825rem;
+      color: var(--silver);
+      line-height: 1.7;
+    }
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(37,99,235,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-badges { display: flex; gap: 0.5rem; }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+    }
+    .badge-pill.blue {
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.25);
+      color: var(--cyan);
+    }
+    .badge-pill.gray {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+    .badge-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.8s ease forwards; }
+    .fade-up-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-up-2 { animation-delay: 0.25s; opacity: 0; }
+    .fade-up-3 { animation-delay: 0.4s; opacity: 0; }
+    .fade-up-4 { animation-delay: 0.55s; opacity: 0; }
+
+    /* ---- SCROLL REVEAL ---- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- RESPONSIVE ---- */
+    @media(max-width: 768px) {
+      .navbar-links { display: none; }
+      .hero-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="navbar-logo">
+        <img src="https://i.ibb.co/Xrr9wsCZ/marca-cognicao.webp" alt="Cognição Digital" style="height:36px; scale:1.6; transform-origin:left center;" />
+      </a>
+      <nav>
+        <ul class="navbar-links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#method">Método</a></li>
+          <li><a href="#structure">Negócios</a></li>
+          <li><a href="https://wa.me/5562983147466" target="_blank" class="btn btn-primary navbar-cta">Falar no WhatsApp</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge fade-up fade-up-1">
+          <span class="dot"></span>
+          Estrategistas de negócios digitais
+        </div>
+        <h1 class="hero-title fade-up fade-up-2">
+          Transforme sua Operação em uma<br>
+          <span class="highlight">Máquina de Vendas</span> Digital
+        </h1>
+        <p class="hero-subtitle fade-up fade-up-3">
+          Não somos uma agência de marketing. Somos arquitetos de negócios. Estruturamos sua presença online com foco em autoridade inquestionável e conversão sustentável.
+        </p>
+        <div class="hero-btns fade-up fade-up-4">
+          <a href="/diagnostico" class="btn btn-primary">
+            Fazer Diagnóstico Estratégico
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://wa.me/5562983147466" target="_blank" class="btn btn-ghost">Solicitar Orçamento</a>
+        </div>
+        <div class="hero-stats fade-up fade-up-4">
+          <div>
+            <div class="hero-stat-value">+2 Anos</div>
+            <div class="hero-stat-label">de Mercado</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">+50</div>
+            <div class="hero-stat-label">Empresas Impactadas</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">100%</div>
+            <div class="hero-stat-label">Foco em Resultados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <span class="section-label">Nossa Atuação</span>
+        <h2 class="section-title">Infraestrutura Estratégica<br>para Domínio de Mercado</h2>
+        <div class="accent-line center"></div>
+        <p class="section-subtitle" style="margin: 0 auto; text-align: center;">
+          Entregamos a infraestrutura estratégica necessária para empresários que buscam domínio de mercado.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="glass-card service-card reveal">
+          <div class="service-icon">🎯</div>
+          <h3 class="service-title">Estruturação de Ofertas</h3>
+          <p class="service-desc">Modelagem de propostas de valor, precificação estratégica e construção de ofertas irresistíveis para máxima margem de lucro.</p>
+        </div>
+        <div class="glass-card service-card reveal">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-title">Engenharia de Presença</h3>
+          <p class="service-desc">Posicionamento digital de autoridade com sites premium, Google Meu Negócio e comunicação magnética que atrai o cliente ideal.</p>
+        </div>
+        <div class="glass-card service-card reveal">
+          <div class="service-icon">🚀</div>
+          <h3 class="service-title">Ecossistemas de Vendas</h3>
+          <p class="service-desc">Desenho de funis completos, automação inteligente e tráfego pago para criar um fluxo constante e previsível de novos clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method">
+    <div class="method-bg-line"></div>
+    <div class="container">
+      <div class="method-header reveal">
+        <span class="section-label">Metodologia</span>
+        <h2 class="section-title">Método de Inteligência Digital</h2>
+        <div class="accent-line center"></div>
+      </div>
+      <div class="method-grid">
+        <div class="glass-card method-card reveal">
+          <div class="method-number">01</div>
+          <div class="method-icon-wrap">🧬</div>
+          <div class="method-tag">DNA</div>
+          <h3 class="method-title">Ação de DNA</h3>
+          <p class="method-desc">Pesquisa profunda para entender o objetivo e finalidade real do negócio no digital.</p>
+        </div>
+        <div class="glass-card method-card reveal">
+          <div class="method-number">02</div>
+          <div class="method-icon-wrap">🧭</div>
+          <div class="method-tag">ARQ</div>
+          <h3 class="method-title">Arquitetura Estratégica</h3>
+          <p class="method-desc">Desenho da jornada do cliente, canais de aquisição e modelagem de autoridade.</p>
+        </div>
+        <div class="glass-card method-card reveal">
+          <div class="method-number">03</div>
+          <div class="method-icon-wrap">⚙️</div>
+          <div class="method-tag">EST</div>
+          <h3 class="method-title">Estruturação Digital</h3>
+          <p class="method-desc">Execução técnica de sites, eBooks, Google Meu Negócio e dashboards de conversão.</p>
+        </div>
+        <div class="glass-card method-card reveal">
+          <div class="method-number">04</div>
+          <div class="method-icon-wrap">📈</div>
+          <div class="method-tag">ALTA</div>
+          <h3 class="method-title">Alta Performance</h3>
+          <p class="method-desc">Ativação de tráfego, acompanhamento analítico, escala e otimização de resultados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURE -->
+  <section id="structure">
+    <div class="container">
+      <div class="structure-inner">
+        <div class="reveal">
+          <span class="section-label">Quem Atendemos</span>
+          <h2 class="section-title">Negócios que Estruturamos</h2>
+          <div class="accent-line"></div>
+          <div class="structure-list">
+            <div class="structure-item">
+              <div class="structure-check">✦</div>
+              <p>Atuações de mercado offline que ainda são dependentes de canais analógicos e indicação.</p>
+            </div>
+            <div class="structure-item">
+              <div class="structure-check">✦</div>
+              <p>Sites obsoletos que transmitem uma imagem inferior à qualidade do serviço real.</p>
+            </div>
+            <div class="structure-item">
+              <div class="structure-check">✦</div>
+              <p>Profissionais que precisam transformar seu tempo em ativos digitais mais escaláveis.</p>
+            </div>
+            <div class="structure-item">
+              <div class="structure-check">✦</div>
+              <p>Varejo físico que buscam um canal de vendas focado em performance e previsibilidade.</p>
+            </div>
+          </div>
+        </div>
+        <div class="structure-image-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=900"
+            alt="Empresas que estruturamos"
+            class="structure-img"
+          />
+          <div class="structure-img-overlay"></div>
+          <div class="structure-badge">
+            <div class="badge-icon">👥</div>
+            <div>
+              <div class="badge-value">+50</div>
+              <div class="badge-label">Empresas Impactadas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="cta-corner tl"></div>
+        <div class="cta-corner tl-v"></div>
+        <div class="cta-corner br"></div>
+        <div class="cta-corner br-v"></div>
+        <div class="cta-inner">
+          <span class="section-label">Próximo Passo</span>
+          <h2 class="cta-title">Pronto para o <span>próximo nível?</span></h2>
+          <p class="cta-sub">
+            Agende uma reunião de diagnóstico e descubra como podemos estruturar seu negócio para alta performance digital.
+          </p>
+          <div class="cta-btns">
+            <a href="https://wa.me/5562983147466" target="_blank" class="btn btn-primary">
+              💬 Falar no WhatsApp
+            </a>
+            <a href="mailto:contato@cognicaodigittal.com" class="btn btn-ghost">
+              ✉️ Enviar E-mail
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="https://i.ibb.co/dsh5FBqM/logotipocd.webp" alt="Cognição Digital" class="footer-logo" style="scale:1.3; transform-origin:left center;" />
+          <p class="footer-tagline">Arquitetura e Estruturação de Ecossistemas Digitais de Alta Performance</p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/cognicao.digital" target="_blank" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="mailto:contato@cognicaodigittal.com" class="social-btn" aria-label="Email">✉</a>
+            <a href="https://wa.me/5562983147466" target="_blank" class="social-btn" aria-label="WhatsApp">WA</a>
+            <a href="https://linkedin.com/in/cognicaodigital" target="_blank" class="social-btn" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#method">Método</a></li>
+            <li><a href="#structure">Negócios</a></li>
+            <li><a href="/diagnostico">Diagnóstico</a></li>
+            <li><a href="/orcamento">Orçamento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Especialidades</h4>
+          <ul class="footer-links">
+            <li><a href="#">Showrooms Digitais Premium</a></li>
+            <li><a href="#">Dominância no Google (GMN)</a></li>
+            <li><a href="#">Arquitetura de Produtos Digitais</a></li>
+            <li><a href="#">Consultoria de Posicionamento</a></li>
+            <li><a href="#">Automação & IA Estratégica</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Informações</h4>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">🕐</span>
+            <div>
+              <div class="footer-info-label">Horário</div>
+              <div class="footer-info-text">Seg a Sex: 10h às 16h<br>(Sáb, Dom e Fer: Fechado)</div>
+            </div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">📍</span>
+            <div>
+              <div class="footer-info-label">Localização</div>
+              <div class="footer-info-text">Goiânia - GO<br>(Atendimento Online Nacional)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Cognição Digital. Todos os direitos reservados. | CNPJ: 42.457.834/0001-70</div>
+        <div class="footer-badges">
+          <div class="badge-pill blue"><span class="badge-dot"></span> DNA Estratégico</div>
+          <div class="badge-pill gray">SSL Secure</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -4,25 +4,23 @@ import content from '../data/content.json';
 
 const Atuacao = () => {
   const { atuacao } = content.home;
-
   return (
-    <section className="py-20 section-container text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 className="text-3xl lg:text-5xl mb-8 tracking-tighter">
-          {atuacao.title}
-        </h2>
-        <p className="text-lg lg:text-xl text-slate-500 max-w-3xl mx-auto font-medium leading-relaxed opacity-80">
-          " {atuacao.subtitle} "
-        </p>
-        <div className="w-24 h-1 bg-brand-gold mx-auto mt-10 rounded-full opacity-30"></div>
-      </motion.div>
+    <section className="py-24 text-center bg-cd-navy">
+      <div className="container-cd">
+        <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.7}}>
+          <h2 className="font-black text-cd-white mb-6"
+            style={{fontSize:'clamp(2rem,4vw,3rem)',letterSpacing:'-0.02em'}}>
+            {atuacao.title}
+          </h2>
+          <p className="text-cd-gold-light mx-auto mb-8 italic opacity-90"
+            style={{fontSize:'1.05rem',lineHeight:'1.85',maxWidth:'580px',letterSpacing:'0.01em'}}>
+            "{atuacao.subtitle}"
+          </p>
+          {/* Gold underline accent */}
+          <div className="mx-auto rounded-full" style={{width:'60px',height:'3px',background:'linear-gradient(90deg,#C9A84C,#1B3358)'}}/>
+        </motion.div>
+      </div>
     </section>
   );
 };
-
 export default Atuacao;

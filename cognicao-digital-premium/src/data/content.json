@@ -1,0 +1,277 @@
+{
+  "company": {
+    "name": "Cognição Digital",
+    "branding": "DIGITAL",
+    "contact": {
+      "whatsapp": "5562983147466",
+      "email": "contato@cognicaodigittal.com"
+    },
+    "social": {
+      "instagram": "cognicao.digital",
+      "linkedin": "in/cognicaodigital"
+    }
+  },
+  "navigation": [
+    { "name": "Início", "path": "/" },
+    { "name": "Sobre", "path": "/sobre" },
+    { "name": "Serviços", "path": "/servicos" },
+    { "name": "Casos de Sucesso", "path": "/cases" },
+    { "name": "Diagnóstico", "path": "/diagnostico" },
+    { "name": "Orçamento", "path": "/orcamento" },
+    { "name": "Apresentação", "path": "/apresentacao" },
+    { "name": "Briefing Online", "path": "/briefing" },
+    { "name": "Mapa de Escala", "path": "/fluxograma" }
+  ],
+  "home": {
+    "hero": {
+      "badge": "Estrategistas de negócios digitais",
+      "headline": "Transforme sua Operação em uma <span>Máquina de Vendas</span> Digital",
+      "subheadline": "Não somos uma agência de marketing. Somos arquitetos de negócios. Estruturamos sua presença online com foco em autoridade inquestionável e conversão sustentável."
+    },
+    "about": {
+      "title": "Nossa Essência Estratégica",
+      "manifesto": "Fundada em Julho de 2022, a Cognição Digital nasceu com a missão de elevar o padrão da presença online de empresários e profissionais liberais. Enxergamos que o mercado estava saturado de 'agências de marketing' que entregavam apenas arte e curtidas, mas carecia de verdadeiros arquitetos que estruturassem negócios para o lucro real.",
+      "stats": [
+        { "value": "+2 Anos", "label": "DE MERCADO" },
+        { "value": "+50", "label": "PROJETOS ATIVOS" }
+      ],
+      "mission": "Estruturar ecossistemas digitais de alta performance que transformam autoridade inquestionável em faturamento real e sustentável.",
+      "vision": "Ser a principal referência em arquitetura de negócios digitais no Brasil, elevando o status de marca de nossos clientes.",
+      "future": "Utilizamos Inteligência Artificial para otimizar processos e criar ecossistemas digitais que aprendem e evoluem.",
+      "values": {
+        "title": "Nossos Valores",
+        "subtitle": "Os pilares inegociáveis que guiam cada decisão tomada dentro da Cognição Digital.",
+        "list": [
+          {
+            "title": "Inteligência Estratégica",
+            "desc": "Toda ação é precedida por uma análise profunda do DNA do negócio."
+          },
+          {
+            "title": "Foco em ROI",
+            "desc": "Não buscamos apenas beleza, buscamos retorno sobre cada centavo investido."
+          },
+          {
+            "title": "Transparência Total",
+            "desc": "Comunicação clara e honesta em todos os processos e resultados."
+          },
+          {
+            "title": "Comprometimento",
+            "desc": "O sucesso do nosso cliente é a única métrica que realmente importa."
+          }
+        ]
+      },
+      "pillars": [
+        {
+          "title": "A Verdade acima da Estética",
+          "desc": "Priorizamos decisões baseadas em ROI e lucro real. Design sem estratégia é apenas decoração."
+        },
+        {
+          "title": "Arquitetura de Intencionalidade",
+          "desc": "Cada elemento da nossa estrutura digital é planejado para conduzir o cliente à conversão."
+        },
+        {
+          "title": "Parceria de Alto Nível",
+          "desc": "Não somos fornecedores de serviços isolados, somos sócios estratégicos do seu crescimento."
+        }
+      ],
+      "timeline": [
+        {
+          "year": "2022",
+          "title": "Fundação",
+          "desc": "Nascimento da Cognição Digital com foco em elevar o padrão do digital."
+        },
+        {
+          "year": "2023",
+          "title": "Consolidação",
+          "desc": "Validação da metodologia e expansão para dezenas de nichos de alta autoridade."
+        },
+        {
+          "year": "2024",
+          "title": "Liderança",
+          "desc": "Referência em arquitetura de ecossistemas digitais para empresários de elite."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Qual a diferença entre Arquiteto e Agência?",
+          "answer": "Agências focam em tarefas (postagens, artes). Nós focamos na estrutura (estratégia, funis e autoridade), construindo um ativo que trabalha para você."
+        },
+        {
+          "question": "Como garantem a autoridade do meu nome?",
+          "answer": "Combinamos design de alto valor percebido com um posicionamento magnético que coloca você como a única solução óbvia do mercado."
+        }
+      ]
+    },
+    "method": {
+      "title": "Método de Inteligência Digital",
+      "columns": [
+        {
+          "tag": "DNA",
+          "title": "Ação de DNA",
+          "desc": "Pesquisa profunda para entender o objetivo e finalidade real do negócio no digital."
+        },
+        {
+          "tag": "ARQ",
+          "title": "Arquitetura Estratégica",
+          "desc": "Desenho da jornada do cliente, canais de aquisição e modelagem de autoridade."
+        },
+        {
+          "tag": "EST",
+          "title": "Estruturação Digital",
+          "desc": "Execução técnica de sites, eBooks, Google Meu Negócio e dashboards de conversão."
+        },
+        {
+          "tag": "ALTA",
+          "title": "Alta Performance",
+          "desc": "Ativação de tráfego, acompanhamento analítico, escala e otimização de resultados."
+        }
+      ]
+    },
+    "atuacao": {
+      "title": "Nossa Atuação",
+      "subtitle": "Entregamos a infraestrutura estratégica necessária para empresários que buscam domínio de mercado.",
+      "cards": [
+        { "title": "Estruturação de Ofertas" },
+        { "title": "Engenharia de Presença" },
+        { "title": "Ecossistemas de Vendas" }
+      ]
+    },
+    "structure": {
+      "title": "Negócios que Estruturamos",
+      "items": [
+        "Atuações de mercado offline que ainda são dependentes de canais analógicos e indicação.",
+        "Sites obsoletos que transmitem uma imagem inferior à qualidade do serviço real.",
+        "Profissionais que precisam transformar seu tempo em ativos digitais mais escaláveis.",
+        "Varejo físico que buscam um canal de vendas focado em performance e previsibilidade."
+      ],
+      "stats": "+50 Empresas impactadas"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Arquitetura e Engenharia de Negócios",
+      "subtitle": "Soluções estratégicas desenhadas para quem precisa de clareza, estrutura e lucro real.",
+      "manifesto": "Construir uma presença digital sem uma arquitetura sólida é como tentar erguer um edifício sobre a areia: pode até parecer bonito no começo, mas não suporta o peso da escala. Na Cognição Digital, abandonamos o modelo de tarefas isoladas para entregar ecossistemas completos. Nossa engenharia conecta sua oferta ao público certo, transformando cada pixel em um ativo de lucro e cada clique em uma prova de autoridade inquestionável."
+    },
+    "list": [
+      {
+        "title": "Estruturação de produtos e serviços",
+        "desc": "Modelagem de propostas de valor, definição de escopo e precificação estratégica para máxima margem de lucro.",
+        "items": [
+          "Análise de Margem e Lucro",
+          "Modelagem de Escopo Premium",
+          "Precificação de Autoridade",
+          "Estratégia de Upsell"
+        ]
+      },
+      {
+        "title": "Consultoria de posicionamento digital",
+        "desc": "Estratégia de marca e comunicação magnética para atrair o público que paga o preço que sua solução realmente vale.",
+        "items": [
+          "Diagnóstico de Marca Digital",
+          "Curadoria de Conteúdo Mestre",
+          "Arquétipo de Comunicação",
+          "Script de Storyselling"
+        ]
+      },
+      {
+        "title": "Dominância no Google Meu Negócio",
+        "desc": "Posicionamento estratégico para busca local, garantindo que sua empresa seja a primeira escolha do seu bairro ou cidade.",
+        "items": [
+          "Otimização de Perfil (GMN)",
+          "Gestão de Prova Social",
+          "SEO Local Avançado",
+          "Estratégia de Fotos Reais"
+        ]
+      },
+      {
+        "title": "Showrooms digitais (Landing pages)",
+        "desc": "Interfaces de alta conversão projetadas para transformar visitantes em clientes com o menor atrito possível.",
+        "items": [
+          "Design de Alta Conversão",
+          "Hospedagem Premium",
+          "Copy de Resposta Direta",
+          "Integração de Pixel e CAPI"
+        ]
+      },
+      {
+        "title": "Criação de ativos inteligentes (eBooks)",
+        "desc": "Construção de iscas digitais e materiais de autoridade que educam o mercado e qualificam leads de alto padrão.",
+        "items": [
+          "Design Editorial Premium",
+          "Pesquisa de Conteúdo Estratégico",
+          "Funil Automático de Entrega",
+          "Copywriting de Autoridade"
+        ]
+      },
+      {
+        "title": "Estratégia global de vendas online",
+        "desc": "Desenho de funis de vendas complexos e integração de canais para criar um fluxo constante e previsível de novas oportunidades.",
+        "items": [
+          "Desenho de Funis de Elite",
+          "Gestão de Tráfego Pago (Ads)",
+          "Campanhas de Remarketing",
+          "Dashboard de Vendas"
+        ]
+      },
+      {
+        "title": "Inteligência artificial e automação",
+        "desc": "Implementação de assistentes inteligentes e fluxos automáticos que otimizam processos e devolvem tempo precioso ao empresário.",
+        "items": [
+          "Treinamento de IA de Atendimento",
+          "Automação de Fluxos de CRM",
+          "Integrações via Webhooks",
+          "Relatórios Automatizados"
+        ]
+      }
+    ]
+  },
+  "cases": {
+    "hero": {
+      "title": "Arquiteturas que Geram Resultados",
+      "subtitle": "Casos de estudo reais de empresários que estruturaram seus negócios para a dominância digital."
+    },
+    "list": [
+      {
+        "id": "instituto-ana-candida",
+        "title": "Instituto Ana Cândida",
+        "tagline": "Terapia Sistêmica e Cursos",
+        "tags": ["Showroom Digital", "Estruturação de Produto", "Posicionamento"],
+        "quote": "Aumento de 300% na retenção de leads e esgotamento de vagas para mentorias.",
+        "problem": "Dificuldade em comunicar a profundidade do método e atrair profissionais qualificados para as formações avançadas.",
+        "result": "Estruturação de um ecossistema de alto valor que resultou em 300% mais retenção e agenda de mentorias lotada.",
+        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200"
+      },
+      {
+        "id": "aunis-conecta",
+        "title": "Aunis Conecta",
+        "tagline": "Estratégia e Networking",
+        "tags": ["Showroom Digital", "Vendas Online", "Estratégia"],
+        "quote": "Consolidação da base de membros e autoridade digital inquestionável.",
+        "problem": "Falta de um ecossistema digital que validasse a autoridade do grupo perante grandes empresários.",
+        "result": "Crescimento de 150% na base de membros ativos e posicionamento como hub de referência no setor.",
+        "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=1200"
+      },
+      {
+        "id": "gisele-ribeiro",
+        "title": "Gisele Ribeiro Saúde e Estética",
+        "tagline": "Estética Premium",
+        "tags": ["Posicionamento", "Showroom Digital", "Design de Autoridade"],
+        "quote": "Aumento de 250% na procura por serviços de alto ticket.",
+        "problem": "Comunicação digital desalinhada com a qualidade técnica e o valor dos procedimentos oferecidos.",
+        "result": "Reposicionamento visual e estratégico que atraiu um público qualificado disposto a pagar o preço justo.",
+        "image": "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=1200"
+      },
+      {
+        "id": "weliton-dias",
+        "title": "Psicólogo Weliton Dias",
+        "tagline": "Clínica de Psicologia",
+        "tags": ["Inteligência Artificial", "Estratégia Global", "Automação"],
+        "quote": "Automatização completa do fluxo de triagem e agenda clínica ocupada.",
+        "problem": "Sobrecarga no atendimento inicial e necessidade de escalar a autoridade clínica no digital.",
+        "result": "Implementação de triagem inteligente e showroom que zerou o tempo de espera e lotou a agenda.",
+        "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200"
+      }
+    ]
+  }
+}

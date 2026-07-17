@@ -29,6 +29,10 @@
       "path": "/cases"
     },
     {
+      "name": "Academia",
+      "path": "/academia"
+    },
+    {
       "name": "Diagnóstico",
       "path": "/diagnostico"
     },
@@ -43,6 +47,10 @@
     {
       "name": "Briefing Online",
       "path": "/briefing"
+    },
+    {
+      "name": "Área do Aluno",
+      "path": "/area-do-aluno"
     },
     {
       "name": "Mapa de Escala",
