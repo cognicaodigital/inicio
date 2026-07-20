@@ -26,7 +26,7 @@ const CTA = () => (
             Pronto para o{' '}
             <span style={{color:'#C9A84C'}}>próximo nível?</span>
           </h2>
-          <p className="text-cd-white/85 mx-auto mb-12"
+          <p className="text-cd-white mx-auto mb-12"
             style={{fontSize:'1rem',lineHeight:'1.85',letterSpacing:'0.01em',maxWidth:'500px'}}>
             Agende uma reunião de diagnóstico e descubra como podemos estruturar seu negócio para alta performance digital.
           </p>

@@ -41,7 +41,7 @@ const Services = () => {
                 </h3>
 
                 {/* Desc */}
-                <p className="text-cd-white/80" style={{fontSize:'0.875rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
+                <p className="text-cd-white" style={{fontSize:'0.875rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
                   {descs[i]}
                 </p>
 

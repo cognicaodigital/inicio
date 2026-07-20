@@ -57,7 +57,7 @@ const Method = () => {
                 </h3>
 
                 {/* Desc */}
-                <p className="text-cd-white/85 relative z-10"
+                <p className="text-cd-white relative z-10"
                   style={{fontSize:'0.8rem',lineHeight:'1.75',letterSpacing:'0.01em'}}>
                   {item.desc}
                 </p>

@@ -39,7 +39,7 @@ const Footer = () => (
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.2)',color:'#CBD5E1'}}
                 onMouseEnter={e=>{e.currentTarget.style.color='#C9A84C';e.currentTarget.style.borderColor='rgba(201,168,76,0.5)'}}
-                onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.6)';e.currentTarget.style.borderColor='rgba(201,168,76,0.2)'}}>
+                onMouseLeave={e=>{e.currentTarget.style.color='#CBD5E1';e.currentTarget.style.borderColor='rgba(201,168,76,0.2)'}}>
                 <Icon size={14}/>
               </a>
             ))}
@@ -54,9 +54,9 @@ const Footer = () => (
               <li key={link.path}>
                 {link.name==='Mapa de Escala'
                   ? <a href={link.path} style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                      onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>{link.name}</a>
+                      onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>{link.name}</a>
                   : <Link to={link.path} style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                      onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>{link.name}</Link>
+                      onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>{link.name}</Link>
                 }
               </li>
             ))}
@@ -72,7 +72,7 @@ const Footer = () => (
                 <div style={{width:'6px',height:'6px',borderRadius:'50%',background:'rgba(201,168,76,0.5)',flexShrink:0,marginTop:'7px',transition:'background 0.3s'}}
                   onMouseEnter={e=>e.currentTarget.style.background='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.background='rgba(201,168,76,0.5)'}/>
                 <span style={{fontSize:'0.8rem',fontWeight:500,color:'#CBD5E1',lineHeight:'1.5',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                  onMouseEnter={e=>e.currentTarget.style.color='#F5E6C0'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+                  onMouseEnter={e=>e.currentTarget.style.color='#F5E6C0'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>
                   {item.title}
                 </span>
 
@@ -94,23 +94,23 @@ const Footer = () => (
           <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'0.9rem'}}>
             <li>
               <Link to="/academia" style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>Academia Cognição Digital</Link>
+                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>Academia Cognição Digital</Link>
             </li>
             <li>
               <Link to="/academia#cursos" style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>Cursos</Link>
+                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>Cursos</Link>
             </li>
             <li>
               <Link to="/academia#trilhas" style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>Trilhas</Link>
+                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>Trilhas</Link>
             </li>
             <li>
               <Link to="/academia#conteudos" style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>Conteúdos</Link>
+                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>Conteúdos</Link>
             </li>
             <li>
               <Link to="/area-do-aluno" style={{fontSize:'0.825rem',fontWeight:500,color:'#CBD5E1',textDecoration:'none',letterSpacing:'0.01em',transition:'color 0.3s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.6)'}>Área do Aluno</Link>
+                onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#CBD5E1'}>Área do Aluno</Link>
             </li>
           </ul>
         </div>
@@ -169,9 +169,9 @@ const Footer = () => (
         <div style={{fontSize:'0.6rem',fontWeight:700,letterSpacing:'0.18em',textTransform:'uppercase',color:'#94A3B8'}}>
           © {new Date().getFullYear()} COGNIÇÃO DIGITAL. TODOS OS DIREITOS RESERVADOS.
           {' '}|{' '}
-          <Link to="/privacidade" style={{color:'#94A3B8',textDecoration:'none',transition:'color 0.3s'}} onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.4)'}>Política de Privacidade</Link>
+          <Link to="/privacidade" style={{color:'#94A3B8',textDecoration:'none',transition:'color 0.3s'}} onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#94A3B8'}>Política de Privacidade</Link>
           {' '}|{' '}
-          <Link to="/termos" style={{color:'#94A3B8',textDecoration:'none',transition:'color 0.3s'}} onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.4)'}>Termos de Uso</Link>
+          <Link to="/termos" style={{color:'#94A3B8',textDecoration:'none',transition:'color 0.3s'}} onMouseEnter={e=>e.currentTarget.style.color='#C9A84C'} onMouseLeave={e=>e.currentTarget.style.color='#94A3B8'}>Termos de Uso</Link>
         </div>
         <div style={{display:'flex',gap:'1rem',alignItems:'center'}}>
           <span style={{fontSize:'0.6rem',fontWeight:800,letterSpacing:'0.2em',textTransform:'uppercase',color:'#F5D061'}}>ATENDIMENTO NACIONAL</span>

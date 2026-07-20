@@ -42,7 +42,7 @@ const Structure = () => {
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden relative group"
               style={{border:'1px solid rgba(201,168,76,0.18)'}}>
-              <img loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=70&w=600"
+              <img loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&fm=webp&q=70&w=600"
                 alt="Empresas" className="w-full h-full object-cover structure-img" />
               <div className="absolute inset-0 z-10" style={{background:'linear-gradient(to top,#0D1B2A 0%,transparent 50%)'}}/>
             </div>

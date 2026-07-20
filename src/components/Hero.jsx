@@ -128,7 +128,7 @@ const Hero = () => {
 
             {/* Sub */}
             <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.3}}
-              className="text-cd-gold-light mb-10 max-w-xl opacity-80"
+              className="text-cd-gold-light mb-10 max-w-xl"
               style={{fontSize:'1rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
               {hero.subheadline}
             </motion.p>
