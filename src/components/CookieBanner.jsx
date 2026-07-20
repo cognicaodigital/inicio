@@ -11,7 +11,7 @@ const CookieBanner = () => {
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
       // Pequeno timer para não abrir bruscamente junto com a tela de load
-      const timer = setTimeout(() => setIsVisible(true), 2500);
+      const timer = setTimeout(() => setIsVisible(true), 6000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -43,7 +43,7 @@ const CookieBanner = () => {
             
             <div className="flex-1">
               <h3 className="text-white font-black text-sm mb-2">Respeitamos sua Privacidade</h3>
-              <p className="text-white/60 text-xs leading-relaxed mb-6 font-medium">
+              <p className="text-white/85 text-xs leading-relaxed mb-6 font-medium">
                 Utilizamos cookies de performance para melhorar a arquitetura da sua navegação e estruturar mapas de conversão de maneira anônima. 
                 Ao continuar, você concorda com nossa{' '}
                 <Link to="/privacidade" className="text-brand-gold hover:underline">Política de Privacidade</Link>.
@@ -58,7 +58,7 @@ const CookieBanner = () => {
                 </button>
                 <button 
                   onClick={handleDecline}
-                  className="flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white/50 text-[9px] uppercase tracking-widest font-black rounded-full hover:bg-white/10 hover:text-white transition-colors text-center"
+                  className="flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white/80 text-[9px] uppercase tracking-widest font-black rounded-full hover:bg-white/10 hover:text-white transition-colors text-center"
                 >
                   Recusar Opcionais
                 </button>
@@ -67,7 +67,7 @@ const CookieBanner = () => {
 
             <button 
               onClick={handleDecline} 
-              className="absolute top-6 right-6 text-white/20 hover:text-white transition-colors"
+              className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors"
               aria-label="Dispensar aviso de privacidade"
             >
               <X size={16} aria-hidden="true" />
