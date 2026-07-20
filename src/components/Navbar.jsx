@@ -34,7 +34,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center group" aria-label="Cognição Digital Página Inicial">
           <img 
             src="https://i.ibb.co/Xrr9wsCZ/marca-cognicao.webp" 
-            alt="marca cognicao" 
+            alt="Logotipo Cognição Digital" 
             className="h-11 md:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03]"
           />
         </Link>

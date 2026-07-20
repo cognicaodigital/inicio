@@ -37,7 +37,7 @@ const InstagramBrowserNotice = () => {
           
           <button 
             onClick={() => setIsVisible(false)}
-            className="p-2 text-white/40 hover:text-white transition-colors"
+            className="p-2 text-white/40 hover:text-white transition-colors" aria-label="Fechar aviso de navegador"
           >
             <X size={20} />
           </button>

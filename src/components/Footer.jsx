@@ -21,7 +21,7 @@ const Footer = () => (
           <Link to="/" className="inline-flex items-center group mb-6" aria-label="Cognição Digital Página Inicial">
             <img 
               src="https://i.ibb.co/dsh5FBqM/logotipocd.webp" 
-              alt="logotipocd" 
+              alt="Logotipo Cognição Digital" 
               className="h-14 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03]"
             />
           </Link>
