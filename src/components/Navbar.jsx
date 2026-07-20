@@ -31,7 +31,7 @@ const Navbar = () => {
       <div className="container-cd flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center group">
+        <Link to="/" className="flex items-center group" aria-label="Cognição Digital Página Inicial">
           <img 
             src="https://i.ibb.co/Xrr9wsCZ/marca-cognicao.webp" 
             alt="marca cognicao" 
@@ -89,7 +89,7 @@ const Navbar = () => {
                       key={link.path}
                       to={link.path}
                       className={`block px-4 py-2.5 text-[9px] font-black tracking-widest transition-colors hover:text-cd-gold ${
-                        location.pathname === link.path ? 'text-cd-gold' : 'text-cd-white/70'
+                        location.pathname === link.path ? 'text-cd-gold' : 'text-cd-white/85'
                       }`}
                       style={{letterSpacing:'0.15em'}}
                     >
@@ -110,7 +110,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="xl:hidden text-cd-white/80 p-2 hover:text-cd-white transition-colors">
+        <button onClick={() => setIsOpen(!isOpen)} className="xl:hidden text-cd-white/80 p-2 hover:text-cd-white transition-colors" aria-label={isOpen ? "Fechar menu" : "Abrir menu"}>
           {isOpen ? <X size={22}/> : <Menu size={22}/>}
         </button>
       </div>
