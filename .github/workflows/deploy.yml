@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,15 +29,12 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: './package-lock.json'
       - name: Install dependencies
         run: |
           rm -f package-lock.json
           npm install
-        working-directory: ./
       - name: Build
         run: npm run build
-        working-directory: ./
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

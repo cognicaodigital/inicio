@@ -15,6 +15,12 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  useEffect(() => {
+    const handleClose = () => setDropdownOpen(false);
+    window.addEventListener('click', handleClose);
+    return () => window.removeEventListener('click', handleClose);
+  }, []);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
@@ -58,6 +64,10 @@ const Navbar = () => {
             onMouseLeave={() => setDropdownOpen(false)}
           >
             <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setDropdownOpen(!dropdownOpen);
+              }}
               className={`relative py-1 text-[10px] font-black tracking-widest transition-colors duration-200 flex items-center gap-1 focus:outline-none ${
                 location.pathname === '/apresentacao' || location.pathname === '/briefing' || location.pathname === '/area-do-aluno' 
                   ? 'text-cd-gold' 
@@ -70,21 +80,23 @@ const Navbar = () => {
             </button>
             
             {dropdownOpen && (
-              <div 
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 rounded-xl border py-2 shadow-2xl backdrop-blur-md z-50 bg-[#0D1B2A]/95 border-cd-gold/25"
-              >
-                {content.navigation.slice(7, 10).map(link => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`block px-4 py-2.5 text-[9px] font-black tracking-widest transition-colors hover:text-cd-gold ${
-                      location.pathname === link.path ? 'text-cd-gold' : 'text-cd-white/70'
-                    }`}
-                    style={{letterSpacing:'0.15em'}}
-                  >
-                    {link.name.toUpperCase()}
-                  </Link>
-                ))}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
+                <div 
+                  className="rounded-xl border py-2 shadow-2xl backdrop-blur-md bg-[#0D1B2A]/95 border-cd-gold/25"
+                >
+                  {content.navigation.slice(7, 10).map(link => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`block px-4 py-2.5 text-[9px] font-black tracking-widest transition-colors hover:text-cd-gold ${
+                        location.pathname === link.path ? 'text-cd-gold' : 'text-cd-white/70'
+                      }`}
+                      style={{letterSpacing:'0.15em'}}
+                    >
+                      {link.name.toUpperCase()}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
