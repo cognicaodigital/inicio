@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
-const BASE = 'c:/Users/User/.gemini/antigravity/conversations/cognicao-digital';
+const BASE = process.cwd();
 const distDir = join(BASE, 'dist');
 const indexHtmlPath = join(distDir, 'index.html');
 
