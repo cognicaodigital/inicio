@@ -53,6 +53,11 @@ const demoCategories = [
         name: 'Borges Almeida Advogados',
         url: 'https://baadvs.com.br/',
         desc: 'Modelo moderno com estética premium focado em advocacia empresarial.'
+      },
+      {
+        name: 'Weber Fernandes Advocacia',
+        url: 'https://weberfernandesadv.github.io/',
+        desc: 'Modelo moderno com posicionamento de autoridade e alta conversão jurídica.'
       }
     ]
   },
