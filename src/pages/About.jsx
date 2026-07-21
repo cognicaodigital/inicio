@@ -217,43 +217,54 @@ const About = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-brand-navy">
         <div className="section-container max-w-4xl">
           <div className="text-center mb-20">
-            <h2 className="text-3xl lg:text-5xl mb-10 tracking-tighter">Esclarecendo o Modelo</h2>
+            <h2 className="text-3xl lg:text-5xl mb-10 tracking-tighter text-white">Esclarecendo o Modelo</h2>
           </div>
           
           <div className="space-y-4">
-            {about.faq.map((item, index) => (
-              <div 
-                key={index} 
-                className="border border-slate-100 rounded-3xl overflow-hidden bg-slate-50/50"
-              >
-                <button 
-                  onClick={() => setActiveFaq(activeFaq === index ? null : index)}
-                  className="w-full p-8 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+            {about.faq.map((item, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div 
+                  key={index} 
+                  className="bg-[#121E36] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:border-brand-gold/40"
                 >
-                  <span className="text-lg lg:text-xl font-bold text-brand-navy tracking-tight">{item.question}</span>
-                  <div className={`transition-transform duration-300 ${activeFaq === index ? 'rotate-180' : ''}`}>
-                    <ArrowRight size={20} className="text-brand-gold rotate-90" />
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {activeFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
+                  <button 
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full p-6 lg:p-8 flex items-center justify-between text-left transition-colors group"
+                  >
+                    <span 
+                      className="text-lg lg:text-xl font-bold tracking-tight transition-colors"
+                      style={{ color: isOpen ? '#C9A84C' : '#FFFFFF' }}
                     >
-                      <div className="p-8 pt-0 text-slate-500 leading-relaxed font-medium text-base lg:text-lg">
-                        {item.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                      {item.question}
+                    </span>
+                    <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                      <ArrowRight size={20} className="text-brand-gold rotate-90" />
+                    </div>
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div 
+                          className="p-6 lg:p-8 pt-0 leading-relaxed font-medium text-base lg:text-lg border-t border-white/5 mt-2 pt-6"
+                          style={{ color: '#F5E6C0', opacity: 0.9 }}
+                        >
+                          {item.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
