@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Hero from '../components/Hero';
-import Method from '../components/Method';
-import Services from '../components/Services';
-import Atuacao from '../components/Atuacao';
-import Structure from '../components/Structure';
-import CTA from '../components/CTA';
+
+const Atuacao = lazy(() => import('../components/Atuacao'));
+const Services = lazy(() => import('../components/Services'));
+const Method = lazy(() => import('../components/Method'));
+const Structure = lazy(() => import('../components/Structure'));
+const CTA = lazy(() => import('../components/CTA'));
 
 const Home = () => {
   return (
     <div className="bg-cd-navy min-h-screen">
       <Hero />
-      <Atuacao />
-      <Services />
-      <Method />
-      <Structure />
-      <CTA />
+      <Suspense fallback={null}>
+        <Atuacao />
+        <Services />
+        <Method />
+        <Structure />
+        <CTA />
+      </Suspense>
     </div>
   );
 };
