@@ -36,6 +36,7 @@ const Navbar = () => {
             src="https://i.ibb.co/Xrr9wsCZ/marca-cognicao.webp" 
             alt="Logotipo Cognição Digital" 
             className="h-11 md:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03]"
+            style={{ filter: 'brightness(1.35) contrast(1.15)' }}
           />
         </Link>
 
