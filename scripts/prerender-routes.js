@@ -29,7 +29,8 @@ const routes = [
   'academia',
   'area-do-aluno',
   'privacidade',
-  'termos'
+  'termos',
+  'apresentacao'
 ];
 
 routes.forEach((route) => {

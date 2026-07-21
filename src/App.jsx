@@ -51,6 +51,7 @@ const PageWrapper = ({ children }) => {
 function AppContent() {
   const location = useLocation();
   const isPreview = location.pathname === '/cases/preview';
+  const isPresentation = location.pathname === '/apresentacao';
 
   return (
     <div className="flex flex-col min-h-screen bg-cd-navy overflow-x-hidden">
@@ -80,7 +81,7 @@ function AppContent() {
           </PageWrapper>
         </Suspense>
       </main>
-      {!isPreview && <Footer />}
+      {!isPreview && !isPresentation && <Footer />}
       {!isPreview && <CookieBanner />}
     </div>
   );
