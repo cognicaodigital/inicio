@@ -342,3 +342,10 @@ input:focus, textarea:focus, select:focus {
   left: 150%;
   transition: all 0.8s ease-in-out;
 }
+
+/* Correção de legibilidade de opções de dropdown <select> */
+select option {
+  background-color: #0D1B2A !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}

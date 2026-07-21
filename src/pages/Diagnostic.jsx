@@ -362,9 +362,9 @@ const Diagnostic = () => {
                           onChange={handleInputChange}
                           className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-transparent border-2 focus:bg-white focus:border-brand-gold/30 focus:outline-none transition-all font-medium text-brand-navy appearance-none text-sm"
                         >
-                          <option value="">UF...</option>
+                          <option value="" className="bg-[#0D1B2A] text-white">UF...</option>
                           {states.map(s => (
-                            <option key={s.uf} value={s.uf}>{s.uf}</option>
+                            <option key={s.uf} value={s.uf} className="bg-[#0D1B2A] text-white">{s.uf}</option>
                           ))}
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
@@ -383,9 +383,9 @@ const Diagnostic = () => {
                           onChange={handleInputChange}
                           className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-transparent border-2 focus:bg-white focus:border-brand-gold/30 focus:outline-none transition-all font-medium text-brand-navy appearance-none disabled:opacity-50 text-sm"
                         >
-                          <option value="">{loadingCities ? '...' : 'Cidade'}</option>
+                          <option value="" className="bg-[#0D1B2A] text-white">{loadingCities ? '...' : 'Cidade'}</option>
                           {cities.map(c => (
-                            <option key={c.id} value={c.nome}>{c.nome}</option>
+                            <option key={c.id} value={c.nome} className="bg-[#0D1B2A] text-white">{c.nome}</option>
                           ))}
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
