@@ -94,7 +94,10 @@ const NetworkSVG = () => (
 
 const Hero = () => {
   const hero = content?.home?.hero;
-  const [isMobile, setIsMobile] = React.useState(false);
+  
+  const [isMobile, setIsMobile] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth < 1024 : false
+  );
 
   React.useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
@@ -120,60 +123,86 @@ const Hero = () => {
           {/* LEFT */}
           <div>
             {/* Badge */}
-            <motion.div 
-              initial={isMobile ? {opacity:1, y:0} : {opacity:0, y:20}} 
-              animate={{opacity:1, y:0}} 
-              transition={isMobile ? {duration:0} : {duration:0.6}}
-              className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-[9px] font-black"
-              style={{background:'rgba(27,51,88,0.8)',border:'1px solid rgba(201,168,76,0.25)',letterSpacing:'0.22em',color:'#CBD5E1'}}>
-              <div className="w-1.5 h-1.5 rounded-full bg-cd-gold" style={{boxShadow:'0 0 6px #C9A84C'}}/>
-              ESTRATEGISTAS DE NEGÓCIOS DIGITAIS
-            </motion.div>
+            {isMobile ? (
+              <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-[9px] font-black"
+                style={{background:'rgba(27,51,88,0.8)',border:'1px solid rgba(201,168,76,0.25)',letterSpacing:'0.22em',color:'#CBD5E1'}}>
+                <div className="w-1.5 h-1.5 rounded-full bg-cd-gold" style={{boxShadow:'0 0 6px #C9A84C'}}/>
+                ESTRATEGISTAS DE NEGÓCIOS DIGITAIS
+              </div>
+            ) : (
+              <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}}
+                className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-[9px] font-black"
+                style={{background:'rgba(27,51,88,0.8)',border:'1px solid rgba(201,168,76,0.25)',letterSpacing:'0.22em',color:'#CBD5E1'}}>
+                <div className="w-1.5 h-1.5 rounded-full bg-cd-gold" style={{boxShadow:'0 0 6px #C9A84C'}}/>
+                ESTRATEGISTAS DE NEGÓCIOS DIGITAIS
+              </motion.div>
+            )}
 
             {/* Headline */}
-            <motion.h1 
-              initial={isMobile ? {opacity:1, y:0} : {opacity:0, y:24}} 
-              animate={{opacity:1, y:0}} 
-              transition={isMobile ? {duration:0} : {duration:0.7, delay:0.15}}
-              className="font-black text-cd-white mb-7"
-              style={{fontSize:'clamp(2.5rem,5vw,4rem)',lineHeight:'1.04',letterSpacing:'-0.025em'}}>
-              Transforme sua<br/>Operação em uma<br/>
-              <span style={{color:'#C9A84C'}}>Máquina de Vendas</span>{' '}Digital
-            </motion.h1>
+            {isMobile ? (
+              <h1 className="font-black text-cd-white mb-7"
+                style={{fontSize:'clamp(2.5rem,5vw,4rem)',lineHeight:'1.04',letterSpacing:'-0.025em'}}>
+                Transforme sua<br/>Operação em uma<br/>
+                <span style={{color:'#C9A84C'}}>Máquina de Vendas</span>{' '}Digital
+              </h1>
+            ) : (
+              <motion.h1 initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.15}}
+                className="font-black text-cd-white mb-7"
+                style={{fontSize:'clamp(2.5rem,5vw,4rem)',lineHeight:'1.04',letterSpacing:'-0.025em'}}>
+                Transforme sua<br/>Operação em uma<br/>
+                <span style={{color:'#C9A84C'}}>Máquina de Vendas</span>{' '}Digital
+              </motion.h1>
+            )}
 
             {/* Sub */}
-            <motion.p 
-              initial={isMobile ? {opacity:1, y:0} : {opacity:0, y:20}} 
-              animate={{opacity:1, y:0}} 
-              transition={isMobile ? {duration:0} : {duration:0.7, delay:0.3}}
-              className="text-cd-gold-light mb-10 max-w-xl"
-              style={{fontSize:'1rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
-              {hero.subheadline}
-            </motion.p>
+            {isMobile ? (
+              <p className="text-cd-gold-light mb-10 max-w-xl"
+                style={{fontSize:'1rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
+                {hero.subheadline}
+              </p>
+            ) : (
+              <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.3}}
+                className="text-cd-gold-light mb-10 max-w-xl"
+                style={{fontSize:'1rem',lineHeight:'1.8',letterSpacing:'0.01em'}}>
+                {hero.subheadline}
+              </motion.p>
+            )}
 
             {/* Buttons */}
-            <motion.div 
-              initial={isMobile ? {opacity:1, y:0} : {opacity:0, y:16}} 
-              animate={{opacity:1, y:0}} 
-              transition={isMobile ? {duration:0} : {duration:0.6, delay:0.45}}
-              className="flex flex-wrap gap-4">
-              <Link to="/diagnostico" className="btn-gold group">
-                Fazer Diagnóstico Estratégico
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform"/>
-              </Link>
-              <Link to="/orcamento" className="btn-white-outline">
-                Solicitar Orçamento
-              </Link>
-            </motion.div>
+            {isMobile ? (
+              <div className="flex flex-wrap gap-4">
+                <Link to="/diagnostico" className="btn-gold group">
+                  Fazer Diagnóstico Estratégico
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform"/>
+                </Link>
+                <Link to="/orcamento" className="btn-white-outline">
+                  Solicitar Orçamento
+                </Link>
+              </div>
+            ) : (
+              <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.45}}
+                className="flex flex-wrap gap-4">
+                <Link to="/diagnostico" className="btn-gold group">
+                  Fazer Diagnóstico Estratégico
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform"/>
+                </Link>
+                <Link to="/orcamento" className="btn-white-outline">
+                  Solicitar Orçamento
+                </Link>
+              </motion.div>
+            )}
           </div>
 
           {/* RIGHT — Network graphic */}
-          <motion.div 
-            initial={isMobile ? {opacity:1, scale:1} : {opacity:0, scale:0.9}} 
-            animate={{opacity:1, scale:1}} 
-            transition={isMobile ? {duration:0} : {duration:0.9, delay:0.2}}>
-            <NetworkSVG/>
-          </motion.div>
+          {isMobile ? (
+            <div>
+              <NetworkSVG/>
+            </div>
+          ) : (
+            <motion.div initial={{opacity:0,scale:0.9}} animate={{opacity:1,scale:1}} transition={{duration:0.9,delay:0.2}}>
+              <NetworkSVG/>
+            </motion.div>
+          )}
 
         </div>
       </div>
