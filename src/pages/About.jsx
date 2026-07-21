@@ -171,7 +171,7 @@ const About = () => {
                 <div className="w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold">
                   <History size={20} />
                 </div>
-                <span className="text-[10px] font-black tracking-[0.2em]">Julho 2022 — Infinity</span>
+                <span className="text-[10px] font-black tracking-[0.2em]">Julho 2022 - Infinity</span>
               </div>
             </div>
             
