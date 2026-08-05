@@ -16,7 +16,8 @@ import {
   Globe, 
   Briefcase,
   Brain,
-  ExternalLink
+  ExternalLink,
+  Play
 } from 'lucide-react';
 import CTA from '../components/CTA';
 
@@ -157,6 +158,18 @@ const demoCategories = [
         name: 'Dra. Mylena Kerolen (Bio & Links)',
         url: 'https://dramylenakerolen.github.io/inicio/links',
         desc: 'Página de Bio e Links de alta conversão para Instagram e agendamento rápido.'
+      }
+    ]
+  },
+  {
+    id: 'infoproduto',
+    title: 'Infoproduto',
+    icon: Play,
+    sites: [
+      {
+        name: 'Curso de Facemaker',
+        url: 'https://betinhogamesyoutuber.github.io/',
+        desc: 'Modelo de página de vendas de alta conversão para cursos e treinamentos digitais.'
       }
     ]
   }
