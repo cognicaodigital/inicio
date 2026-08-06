@@ -59,6 +59,11 @@ const demoCategories = [
         name: 'Weber Fernandes Advocacia',
         url: 'https://weberfernandesadv.github.io/',
         desc: 'Modelo moderno com posicionamento de autoridade e alta conversão jurídica.'
+      },
+      {
+        name: 'Weber Fernandes Advogados (Premium)',
+        url: 'https://advweber.com/',
+        desc: 'Modelo premium com domínio próprio, alta conversão e design institucional de autoridade.'
       }
     ]
   },
